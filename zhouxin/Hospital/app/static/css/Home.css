@@ -1,0 +1,214 @@
+body,h1,h2,ul,ol,p,table,th,td{
+	margin: 0;
+	padding: 0;
+}
+
+body{
+	font: 14px '宋体';
+/*	color: #666666;*/
+}
+
+a{
+	font: 16px 'Microsoft Yahei';
+	text-decoration: none;
+	color: #666666;
+}
+
+img{
+	vertical-align: middle;
+}
+
+ul,ol{
+	list-style: none;
+}
+
+/*******导航栏*********/
+#Navigation{
+	height: 25px;
+	background-color: #EFEFEF;
+}
+
+/********首部*********/
+
+#head{
+    background-color: #1F7150;	
+	width: 1200px;
+	height: 70px;
+	color: white;
+	margin: 0 auto;
+}
+#head li{
+	float: left;
+	line-height: 70px;
+	margin-right: 30px;
+}
+#head a{
+	color: white;
+}
+/*左侧导栏部分*/
+
+#head .l_Head a:hover{
+	color: #08120D;
+}
+/*登录部分*/
+#head .r_Head{
+	float: right;
+}
+
+#head .r_Head>a{
+	font-size: 14px;
+}
+#head .r_Head>a:hover{
+	color: #08120D;
+}
+
+/********主体**********/
+#main{
+	width: 1200px;
+	margin: 0 auto 60px auto;
+}
+#top{
+	height: 20px;
+	background-color: #F5F5F5;
+}
+
+/****主体左部信息*****/
+#left_main{
+	width: 230px;
+	float: left;
+}
+/*公告*/
+#left_main>#Notice{
+	width: 208px;
+	border: 1px solid #CCCCCC;
+	border-top: 5px solid #1F7150;
+	padding: 10px;
+	line-height: 25px;
+}
+#left_main>#Notice>h2{
+	margin-bottom: 10px;
+}
+/*随便添加一点图片*/
+#left_main>#icon{
+	margin: 20px 0;
+}
+
+/*<!-- 特色科室 -->*/
+#left_main>#characteristic{
+	width: 170px;
+	border: 1px solid #CCCCCC;
+	border-top: 5px solid #1F7150;
+	padding: 5px;
+	margin: 0 auto;
+}
+#left_main>#characteristic>h2{
+	margin-bottom: 10px;
+}
+#left_main>#characteristic>div>a{
+	display: block;
+	font-size: 14px;
+	margin: 10px 0;
+	background-color: #F7FEF7;
+	border: 1px solid #CCCCCC;
+	padding: 5px;
+	text-align: center;
+}
+#left_main>#characteristic>div>a:hover{
+	background-color: #66cc33;
+	color: white;
+}
+
+/****主体右部信息*****/
+#right_main{
+	width: 960px;
+	float: right;
+}
+/*图片展示*/
+#right_main>#dis_picture img{
+	display: inline-block;
+	width: 180px;
+	height: 120px;
+	margin: 0 5px 0 10px; 
+}
+/*医院概况*/
+#right_main>#survey{
+	margin-top: 20px;
+}
+
+#right_main>#survey>.top_sur>a{
+	float: right;
+}
+
+#right_main>#survey>.bot_sur{
+	background-color: #FAFAF7;
+	border-top: 1px solid #6BBB78;
+}
+#right_main>#survey>.bot_sur>a{
+	line-height: 25px;
+}
+#right_main>#survey>.bot_sur>a:hover{
+	color: #0045B7;
+}
+
+/*科室列表*/
+#right_main>#department{
+	margin-top: 20px;
+}
+
+#right_main>#department>.top_dep>a{
+	float: right;
+}
+#right_main>#department>.bot_dep{
+	background-color: #FAFAF7;
+	border-top: 1px solid #6BBB78;
+}
+#right_main>#department>.bot_dep>a{
+	display: inline-block;
+	font-size: 14px;
+	margin: 10px 5px 10px 0;
+	background-color: #F7FEF7;
+	border: 1px solid #CCCCCC;
+	padding: 5px 5px; 
+}
+#right_main>#department>.bot_dep>a:hover{
+	background-color: #66cc33;
+	color: white;
+}
+/*<!-- 专家推荐 -->*/
+#right_main>#expert{
+	margin-top: 20px;
+}
+
+#right_main>#expert>.top_expert>a{
+	float: right;
+}
+
+#right_main>#expert>.bot_expert{
+	background-color: #FAFAF7;
+	border-top: 1px solid #6BBB78;
+	width: 100%
+}
+
+#right_main>#expert>.bot_expert>thead th{
+	border-bottom: 2px dashed #016F97;
+	padding: 10px 0;
+}
+
+#right_main>#expert>.bot_expert>tbody td{
+	border-bottom: 1px dashed #CCCCCC;
+	padding: 10px 0;
+	text-align: center;
+	color: #666666;
+}
+#right_main>#expert>.bot_expert>tbody td>a:hover{
+	color: #339644;
+}
+
+#right_main>#expert>.bot_expert .table_last{
+	width: 460px;
+}
+
+/*主体内容高度支撑*/
+#bottom{
+	clear: both;
+}

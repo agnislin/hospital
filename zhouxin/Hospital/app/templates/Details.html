@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>广东省口腔医院预约挂号</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/Details.css">
+    <link rel="shortcut icon" href="/static/image/icon/hospital.ico" type="image/x-icon">
+    <script type="text/javascript" src="/static/js/jquery-1.11.3.js"></script>
+    <script type="text/javascript" src="/static/js/Details.js"></script>
+    <script>
+        $(function () {
+        $.get('/introduce', 'id={{ params.department.id }}', function (restext) {
+            $("#iterfdsg").html(restext);
+        }, 'text');
+        });
+    </script>
+</head>
+
+<body>
+<!-- 导航栏 -->
+<div id="Navigation"></div>
+<!-- 首部 -->
+<div id="head">
+    <ul>
+        <li>
+            <a href="/">
+                <img src="../static/image/logo.png">
+            </a>
+        </li>
+        <li class="l_Head">
+            <a href="/">首页</a>
+        </li>
+        <li class="l_Head">
+            <a href="#">医院简介</a>
+        </li>
+        <li class="l_Head">
+            <a href="#">科室介绍</a>
+        </li>
+        <li class="l_Head">
+            <a href="#">专家介绍</a>
+        </li>
+        <li class="l_Head">
+            <a href="#">预约挂号</a>
+        </li>
+        <li class="l_Head">
+            <a href="#">在线咨询</a>
+        </li>
+        <li class="l_Head">
+            <a href="#">地理位置</a>
+        </li>
+        <li class="l_Head">
+            <a href="#">最新消息</a>
+        </li>
+        <li class="r_Head">
+            {% if params.userName %}
+            欢迎你：{{params.userName}}
+            <span> | </span>
+            <a href="/Exit">[ 注销 ]</a>
+            {% else %}
+            <a href="/Login">[ 登录 ]</a>
+            <span> | </span>
+            <a href="/Register">[ 注册 ]</a>
+            {% endif %}
+        </li>
+    </ul>
+</div>
+<!-- 主体 -->
+<div id="main">
+    <!-- 顶部框 -->
+    <div id="top"></div>
+    <!-- 主体左部 -->
+    <div id='left_main'>
+        <!-- 最新公告 -->
+        <div id="Notice">
+            <h2>医院最新公告</h2>
+            <marquee direction=up height="40" scrollamount="1" onmouseover=info1.stop() onmouseout=info1.start()>
+                1、为不影响您的就医，请于就诊前1-14个工作日提交预约需求；
+                2、网站信息仅供参考，具体出诊和收费情况以医院为准
+            </marquee>
+        </div>
+        <!-- 随便添加一点图片 -->
+        <div id="icon">
+            <img src="../static/image/icon/icon_yuyuezhuyuan_grey.png">
+            <img src="../static/image/icon/icon_daoyipeizhen_grey.png">
+            <img src="../static/image/icon/icon_yuyuetijian_grey.png">
+            <img src="../static/image/icon/icon_dingdianyiyuan_grey.png">
+            <img src="../static/image/icon/icon_yuanchengxindian_grey.png">
+        </div>
+        <!-- 特色科室 -->
+        <div id="characteristic">
+            <h2>医院特色科室</h2>
+            <div>
+                {% for department in params.departments %}
+                {% if department.special %}
+                <a href="/details?id={{ department.id }}">{{ department.department }}</a>
+                {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <!-- 主体右部 -->
+    <div id='right_main'>
+        <!-- 设置右侧 位置信息 -->
+        <div class="localtion">
+            您的位置：<a href="/" class="index_a" style="font-size: 14px;">首页</a>&nbsp;>>&nbsp;&nbsp;{{
+            params.department.department }}
+            <a href="/Section" class="contain_img">
+                <img src="../static/image/ks.gif" class="right_img">
+            </a>
+        </div>
+
+        <!-- 设置右侧 科室介绍 -->
+        <div class="introduce">
+            <div id="iterfdsg">
+
+            </div>
+        </div>
+        <!-- 设置右侧 专家出诊 -->
+        <div class="doctor_work">
+            <div class="work_title">该科室专家出诊情况</div>
+            <div class="query_doctor">
+                <select name="hosdate" id="hosdate">
+                    <option value="-1">近一星期内</option>
+                    <option value="3">10月17日(星期三)</option>
+                    <option value="4">10月18日(星期四)</option>
+                    <option value="5">10月19日(星期五)</option>
+                    <option value="6">10月20日(星期六)</option>
+                    <option value="0">10月21日(星期日)</option>
+                    <option value="1">10月22日(星期一)</option>
+                    <option value="2">10月23日(星期二)</option>
+                </select>&nbsp;
+                <select name="hostime" id="hostime">
+                    <option value="">上(下)午</option>
+                    <option value="上午">上午</option>
+                    <option value="下午">下午</option>
+                </select>&nbsp;
+                医生：<input type="text" id="doctor_text">
+                专长：<input type="text" id="specialty">
+                <button id="btn">搜索一下</button>
+            </div>
+
+        </div>
+        <div class="appointment">
+            <!-- 设置预约头部信息 -->
+            <div class="appointment_header">
+                <!-- 设置预约头部左侧信息 -->
+                <div class="appointment_header_left">
+                    <a href="/">广东省口腔医院</a>&nbsp;>
+                    <a href="#">牙体牙髓科</a>&nbsp;>&nbsp;主治医生：
+                    <a href="#">耿华欧 (男)</a>
+                </div>
+                <!-- 设置预约头部右侧信息 -->
+                <div class="appointment_header_right">
+                    [<a href="#">查看医生详细资料</a>]
+                </div>
+            </div>
+            <!-- 设置详细预约信息 -->
+            <div class="appointment_content">
+                <div class="doctor_forte">
+                    医师专长：擅长前牙微创美容修复、活动义齿美容修复、固定－活动联合修复、牙周病修复治疗
+                </div>
+                <div class="doctorPriceAndTalk">
+                    <span>挂号费用:0.00 元</span>
+                    <span class="doctorTalk">
+							[<a href="#">咨询此医生</a>]
+						</span>
+                </div>
+                <div class="appointment_cont">
+                    <div class="work_dates">出诊日期</div>
+                    <div class="work_dates1">
+                        <ul>
+                            <li>10月17日</li>
+                            <li>星期五</li>
+                            <li>
+                                <div class="workmorning">上午<br><a href="#" class="asgsdg">预约</a></div>
+                                <div class="workafter">下午<br><a href="#" class="asgsdg">预约</a></div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="work_dates1">
+                        <ul>
+                            <li>10月17日</li>
+                            <li>星期五</li>
+                            <li>
+                                <div class="workmorning">上午<br><a href="#" class="asgsdg">预约</a></div>
+                                <div>下午<br><a href="#" class="asgsdg">预约</a></div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="work_dates1">
+                        <ul>
+                            <li>10月17日</li>
+                            <li>星期五</li>
+                            <li>
+                                <div class="workmorning">上午<br><a href="#" class="asgsdg">预约</a></div>
+                                <div>下午<br><a href="#" class="asgsdg">预约</a></div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="work_dates1">
+                        <ul>
+                            <li>10月17日</li>
+                            <li>星期五</li>
+                            <li>
+                                <div class="workmorning">上午<br><a href="#" class="asgsdg">预约</a></div>
+                                <div>下午<br><a href="#" class="asgsdg">预约</a></div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="work_dates1">
+                        <ul>
+                            <li>10月17日</li>
+                            <li>星期五</li>
+                            <li>
+                                <div class="workmorning">上午<br><a href="#" class="asgsdg">预约</a></div>
+                                <div>下午<br><a href="#" class="asgsdg">预约</a></div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="work_dates1">
+                        <ul>
+                            <li>10月17日</li>
+                            <li>星期五</li>
+                            <li>
+                                <div class="workmorning">上午<br><a href="#" class="asgsdg">预约</a></div>
+                                <div>下午<br><a href="#" class="asgsdg">预约</a></div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="work_dates1">
+                        <ul>
+                            <li>10月17日</li>
+                            <li>星期五</li>
+                            <li>
+                                <div class="workmorning">上午<br><a href="#" class="asgsdg">预约</a></div>
+                                <div>下午<br><a href="#" class="asgsdg">预约</a></div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 设置右侧 医生预约信息 -->
+        <div class="appointment">
+            <!-- 设置预约头部信息 -->
+            <div class="appointment_header">
+                <!-- 设置预约头部左侧信息 -->
+                <div class="appointment_header_left">
+                    <a href="/">广东省口腔医院</a>&nbsp;>
+                    <a href="#">牙体牙髓科</a>&nbsp;>&nbsp;主治医生：
+                    <a href="#">耿华欧 (男)</a>
+                </div>
+                <!-- 设置预约头部右侧信息 -->
+                <div class="appointment_header_right">
+                    [<a href="#">查看医生详细资料</a>]
+                </div>
+            </div>
+            <!-- 设置详细预约信息 -->
+            <div class="appointment_content">
+                <div class="doctor_forte">
+                    医师专长：擅长前牙微创美容修复、活动义齿美容修复、固定－活动联合修复、牙周病修复治疗
+                </div>
+                <div class="doctorPriceAndTalk">
+                    <span>挂号费用:0.00 元</span>
+                    <span class="doctorTalk">
+							[<a href="#">咨询此医生</a>]
+						</span>
+                </div>
+                <div class="appointment_cont">
+                    <div class="work_dates">出诊日期</div>
+                    <div class="work_dates1">
+                        <ul>
+                            <li>10月17日</li>
+                            <li>星期五</li>
+                            <li>
+                                <div class="workmorning">上午<br><a href="#" class="asgsdg">预约</a></div>
+                                <div class="workafter">下午<br><a href="#" class="asgsdg">预约</a></div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="work_dates1">
+                        <ul>
+                            <li>10月17日</li>
+                            <li>星期五</li>
+                            <li>
+                                <div class="workmorning">上午<br><a href="#" class="asgsdg">预约</a></div>
+                                <div>下午<br><a href="#" class="asgsdg">预约</a></div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="work_dates1">
+                        <ul>
+                            <li>10月17日</li>
+                            <li>星期五</li>
+                            <li>
+                                <div class="workmorning">上午<br><a href="#" class="asgsdg">预约</a></div>
+                                <div>下午<br><a href="#" class="asgsdg">预约</a></div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="work_dates1">
+                        <ul>
+                            <li>10月17日</li>
+                            <li>星期五</li>
+                            <li>
+                                <div class="workmorning">上午<br><a href="#" class="asgsdg">预约</a></div>
+                                <div>下午<br><a href="#" class="asgsdg">预约</a></div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="work_dates1">
+                        <ul>
+                            <li>10月17日</li>
+                            <li>星期五</li>
+                            <li>
+                                <div class="workmorning">上午<br><a href="#" class="asgsdg">预约</a></div>
+                                <div>下午<br><a href="#" class="asgsdg">预约</a></div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="work_dates1">
+                        <ul>
+                            <li>10月17日</li>
+                            <li>星期五</li>
+                            <li>
+                                <div class="workmorning">上午<br><a href="#" class="asgsdg">预约</a></div>
+                                <div>下午<br><a href="#" class="asgsdg">预约</a></div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="work_dates1">
+                        <ul>
+                            <li>10月17日</li>
+                            <li>星期五</li>
+                            <li>
+                                <div class="workmorning">上午<br><a href="#" class="asgsdg">预约</a></div>
+                                <div>下午<br><a href="#" class="asgsdg">预约</a></div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="appointment">
+            <!-- 设置预约头部信息 -->
+            <div class="appointment_header">
+                <!-- 设置预约头部左侧信息 -->
+                <div class="appointment_header_left">
+                    <a href="/">广东省口腔医院</a>&nbsp;>
+                    <a href="#">牙体牙髓科</a>&nbsp;>&nbsp;主治医生：
+                    <a href="#">耿华欧 (男)</a>
+                </div>
+                <!-- 设置预约头部右侧信息 -->
+                <div class="appointment_header_right">
+                    [<a href="#">查看医生详细资料</a>]
+                </div>
+            </div>
+            <!-- 设置详细预约信息 -->
+            <div class="appointment_content">
+                <div class="doctor_forte">
+                    医师专长：擅长前牙微创美容修复、活动义齿美容修复、固定－活动联合修复、牙周病修复治疗
+                </div>
+                <div class="doctorPriceAndTalk">
+                    <span>挂号费用:0.00 元</span>
+                    <span class="doctorTalk">
+							[<a href="#">咨询此医生</a>]
+						</span>
+                </div>
+                <div class="appointment_cont">
+                    <div class="work_dates">出诊日期</div>
+                    <div class="work_dates1">
+                        <ul>
+                            <li>10月17日</li>
+                            <li>星期五</li>
+                            <li>
+                                <div class="workmorning">上午<br><a href="#" class="asgsdg">预约</a></div>
+                                <div class="workafter">下午<br><a href="#" class="asgsdg">预约</a></div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="work_dates1">
+                        <ul>
+                            <li>10月17日</li>
+                            <li>星期五</li>
+                            <li>
+                                <div class="workmorning">上午<br><a href="#" class="asgsdg">预约</a></div>
+                                <div>下午<br><a href="#" class="asgsdg">预约</a></div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="work_dates1">
+                        <ul>
+                            <li>10月17日</li>
+                            <li>星期五</li>
+                            <li>
+                                <div class="workmorning">上午<br><a href="#" class="asgsdg">预约</a></div>
+                                <div>下午<br><a href="#" class="asgsdg">预约</a></div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="work_dates1">
+                        <ul>
+                            <li>10月17日</li>
+                            <li>星期五</li>
+                            <li>
+                                <div class="workmorning">上午<br><a href="#" class="asgsdg">预约</a></div>
+                                <div>下午<br><a href="#" class="asgsdg">预约</a></div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="work_dates1">
+                        <ul>
+                            <li>10月17日</li>
+                            <li>星期五</li>
+                            <li>
+                                <div class="workmorning">上午<br><a href="#" class="asgsdg">预约</a></div>
+                                <div>下午<br><a href="#" class="asgsdg">预约</a></div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="work_dates1">
+                        <ul>
+                            <li>10月17日</li>
+                            <li>星期五</li>
+                            <li>
+                                <div class="workmorning">上午<br><a href="#" class="asgsdg">预约</a></div>
+                                <div>下午<br><a href="#" class="asgsdg">预约</a></div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="work_dates1">
+                        <ul>
+                            <li>10月17日</li>
+                            <li>星期五</li>
+                            <li>
+                                <div class="workmorning">上午<br><a href="#" class="asgsdg">预约</a></div>
+                                <div>下午<br><a href="#" class="asgsdg">预约</a></div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="appointment">
+            <!-- 设置预约头部信息 -->
+            <div class="appointment_header">
+                <!-- 设置预约头部左侧信息 -->
+                <div class="appointment_header_left">
+                    <a href="/">广东省口腔医院</a>&nbsp;>
+                    <a href="#">牙体牙髓科</a>&nbsp;>&nbsp;主治医生：
+                    <a href="#">耿华欧 (男)</a>
+                </div>
+                <!-- 设置预约头部右侧信息 -->
+                <div class="appointment_header_right">
+                    [<a href="#">查看医生详细资料</a>]
+                </div>
+            </div>
+            <!-- 设置详细预约信息 -->
+            <div class="appointment_content">
+                <div class="doctor_forte">
+                    医师专长：擅长前牙微创美容修复、活动义齿美容修复、固定－活动联合修复、牙周病修复治疗
+                </div>
+                <div class="doctorPriceAndTalk">
+                    <span>挂号费用:0.00 元</span>
+                    <span class="doctorTalk">
+							[<a href="#">咨询此医生</a>]
+						</span>
+                </div>
+                <div class="appointment_cont">
+                    <div class="work_dates">出诊日期</div>
+                    <div class="work_dates1">
+                        <ul>
+                            <li>10月17日</li>
+                            <li>星期五</li>
+                            <li>
+                                <div class="workmorning">上午<br><a href="#" class="asgsdg">预约</a></div>
+                                <div class="workafter">下午<br><a href="#" class="asgsdg">预约</a></div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="work_dates1">
+                        <ul>
+                            <li>10月17日</li>
+                            <li>星期五</li>
+                            <li>
+                                <div class="workmorning">上午<br><a href="#" class="asgsdg">预约</a></div>
+                                <div>下午<br><a href="#" class="asgsdg">预约</a></div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="work_dates1">
+                        <ul>
+                            <li>10月17日</li>
+                            <li>星期五</li>
+                            <li>
+                                <div class="workmorning">上午<br><a href="#" class="asgsdg">预约</a></div>
+                                <div>下午<br><a href="#" class="asgsdg">预约</a></div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="work_dates1">
+                        <ul>
+                            <li>10月17日</li>
+                            <li>星期五</li>
+                            <li>
+                                <div class="workmorning">上午<br><a href="#" class="asgsdg">预约</a></div>
+                                <div>下午<br><a href="#" class="asgsdg">预约</a></div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="work_dates1">
+                        <ul>
+                            <li>10月17日</li>
+                            <li>星期五</li>
+                            <li>
+                                <div class="workmorning">上午<br><a href="#" class="asgsdg">预约</a></div>
+                                <div>下午<br><a href="#" class="asgsdg">预约</a></div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="work_dates1">
+                        <ul>
+                            <li>10月17日</li>
+                            <li>星期五</li>
+                            <li>
+                                <div class="workmorning">上午<br><a href="#" class="asgsdg">预约</a></div>
+                                <div>下午<br><a href="#" class="asgsdg">预约</a></div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="work_dates1">
+                        <ul>
+                            <li>10月17日</li>
+                            <li>星期五</li>
+                            <li>
+                                <div class="workmorning">上午<br><a href="#" class="asgsdg">预约</a></div>
+                                <div>下午<br><a href="#" class="asgsdg">预约</a></div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="paging">
+            <span class="paging_count"><< 总记录数=[33]-总页数=[7] >></span>
+            <span class="paging_first_last"><a href="#">首页</a></span>
+            <span><a href="#" class="cur_paging">[1]</a></span>
+            <span><a href="#">[2]</a></span>
+            <span><a href="#">[3]</a></span>
+            <span class="paging_first_last"><a href="#">末页</a></span>
+        </div>
+
+
+    </div>
+    <!-- <div id="bottom"></div> -->
+</div>
+</body>
+</html>

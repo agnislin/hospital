@@ -1,0 +1,310 @@
+body,h1,h2,ul,ol,p,table,th,td{
+	margin: 0;
+	padding: 0;
+}
+
+body{
+	font: 14px '宋体';
+/*	color: #666666;*/
+}
+
+a{
+	font: 16px 'Microsoft Yahei';
+	text-decoration: none;
+	color: #666666;
+}
+
+img{
+	vertical-align: middle;
+}
+
+ul,ol{
+	list-style: none;
+}
+
+/*******导航栏*********/
+#Navigation{
+	height: 25px;
+	background-color: #EFEFEF;
+}
+
+/********首部*********/
+
+#head{
+    background-color: #1F7150;	
+	width: 1200px;
+	height: 70px;
+	color: white;
+	margin: 0 auto;
+}
+#head li{
+	float: left;
+	line-height: 70px;
+	margin-right: 30px;
+}
+#head a{
+	color: white;
+}
+/*左侧导栏部分*/
+
+#head .l_Head a:hover{
+	color: #08120D;
+}
+/*登录部分*/
+#head .r_Head{
+	float: right;
+}
+
+#head .r_Head>a{
+	font-size: 14px;
+}
+#head .r_Head>a:hover{
+	color: #08120D;
+}
+
+/********主体**********/
+#main{
+	width: 1200px;
+	margin: 0 auto 60px auto;
+}
+#top{
+	height: 20px;
+	background-color: #F5F5F5;
+}
+
+/****主体左部信息*****/
+#left_main{
+	width: 230px;
+	float: left;
+}
+/*公告*/
+#left_main>#Notice{
+	width: 208px;
+	border: 1px solid #CCCCCC;
+	border-top: 5px solid #1F7150;
+	padding: 10px;
+	line-height: 25px;
+}
+#left_main>#Notice>h2{
+	margin-bottom: 10px;
+}
+/*随便添加一点图片*/
+#left_main>#icon{
+	margin: 20px 0;
+}
+
+/*<!-- 特色科室 -->*/
+#left_main>#characteristic{
+	width: 170px;
+	border: 1px solid #CCCCCC;
+	border-top: 5px solid #1F7150;
+	padding: 5px;
+	margin: 0 auto;
+}
+#left_main>#characteristic>h2{
+	margin-bottom: 10px;
+}
+#left_main>#characteristic>div>a{
+	display: block;
+	font-size: 14px;
+	margin: 10px 0;
+	background-color: #F7FEF7;
+	border: 1px solid #CCCCCC;
+	padding: 5px;
+	text-align: center;
+}
+#left_main>#characteristic>div>a:hover{
+	background-color: #66cc33;
+	color: white;
+}
+
+/****主体右部信息*****/
+#right_main{
+	width: 960px;
+	float: right;
+}
+/* 设置右侧位置信息 */
+#right_main .localtion{
+	height: 30px;
+	width: 98%;
+	line-height: 30px;
+}
+#right_main .localtion .index_a{
+	color: #339644;
+	font-size: 15px;
+}
+#right_main .localtion .index_a:hover{
+	color: #007d67;
+	text-decoration: underline;
+}
+#right_main .localtion .contain_img{
+	float: right;
+}
+#right_main .right_img{
+	width: 99px;
+	height: 23px;
+}
+
+/* 设置科室介绍信息 */
+.introduce{
+	width: 98%;
+	background-color: rgb(247,247,247);
+}
+
+/* 设置专家出诊信息 */
+.doctor_work{
+	width: 98%;
+	margin-bottom: 3px;
+}
+.doctor_work .work_title{
+	height: 25px;
+	line-height: 25px;
+	color: #1A6648;
+	font-weight: bold;
+}
+.doctor_work .query_doctor{
+	line-height: 30px;
+}
+.doctor_work #hosdate{
+	width: 115px;
+	font-size: 12px;
+	background: #fff;
+}
+.doctor_work #hostime{
+	width:80px;
+	font-size: 12px;
+	background: #fff;
+}
+.doctor_work #doctor_text{
+	width: 80px;
+	height: 24px;
+	outline: none;
+}
+.doctor_work #specialty{
+	width: 120px;
+	height: 24px;
+	outline: none;
+}
+.doctor_work #btn{
+	width: 96px;
+	height: 20px;
+	border:none;
+	cursor: pointer;
+	margin-left: 5px;
+	outline: none;
+}
+
+
+/* 设置医生预约信息 */
+.appointment{
+	font-size: 14px;
+	background-color: #F2F5FD;
+	width: 98%;
+	border: 1px solid #83cbcf;
+	margin-bottom: 10px;
+}
+.appointment a{
+	color:#0045B7;
+	font-size: 14px;
+}
+.appointment .appointment_header{
+	padding: 2px;
+	border-bottom: 1px solid #83cbcf;
+}
+.appointment .appointment_header_left{
+	display: inline-block;
+}
+.appointment .appointment_header_right{
+	float: right;
+}
+.appointment .appointment_content{
+	background: white;
+}
+.appointment .doctor_forte{
+	padding: 2px;
+	margin-left: 15px;
+	height: 25px;
+	line-height: 25px;
+}
+.appointment .doctorPriceAndTalk{
+	padding: 2px;
+	margin-left: 50px;
+	height: 25px;
+	line-height: 25px;
+}
+.appointment .doctorTalk{
+	margin-left: 50px;
+}
+.appointment .appointment_cont{
+	height: 122px;
+}
+.appointment .work_dates{
+	float: left;
+	width: 80px;
+	height: 120px;
+	padding: 2px;
+	text-align: center;
+	line-height: 122px;
+}
+.appointment .work_dates1{
+	float: left;
+	width: 80px;
+	height: 100px;
+	padding: 2px;
+	text-align: center;
+	margin-right: 5px;
+}
+.appointment li{
+	height: 38px;
+	width: 120px;
+	padding: 1px;
+}
+.appointment .workmorning{
+	float: left;
+	width: 50px;
+	height: 30px;
+	text-align: right;
+}
+.appointment .workafter{
+	float: right;
+	width: 50px;
+	height: 30px;
+	text-align: left;
+}
+.appointment .asgsdg{
+	font-size: 12px;
+	color: black;
+}
+
+/* 设置分页信息 */
+.paging{
+	height: 34px;
+	padding: 1px;
+	line-height: 36px;
+	text-align: center;
+}
+.paging .paging_count{
+	border: none;
+}
+.paging a{
+	font-size: 14px;
+	color:black;
+}
+.paging span{
+	border-bottom: 1px dashed #666;
+}
+.paging .paging_first_last{
+	border: none;
+}
+.paging .paging_first_last a{
+	text-decoration: underline;
+}
+.paging .cur_paging{
+	color: red;
+}
+
+
+/*主体内容高度支撑*/
+#bottom{
+	clear: both;
+}

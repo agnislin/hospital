@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>广东省口腔医院预约挂号</title>
+	<link rel="stylesheet" type="text/css" href="/static/css/Home.css">
+	<link rel="shortcut icon" href="/static/image/icon/hospital.ico" type="image/x-icon">
+</head>
+<body>
+	<!-- 导航栏 -->
+	<div id="Navigation"></div>
+	<!-- 首部 -->
+	<div id="head">
+		<ul>
+			<li>
+				<a href="/Home">
+					<img src="/static/image/logo.png">
+				</a>
+			</li>
+			<li class="l_Head">
+				<a href="/Home">首页</a>
+			</li>
+			<li class="l_Head">
+				<a href="#">医院简介</a>
+			</li>
+			<li class="l_Head">
+				<a href="/Section">科室介绍</a>
+			</li>
+			<li class="l_Head">
+				<a href="#">专家介绍</a>
+			</li>
+			<li class="l_Head">
+				<a href="#">预约挂号</a>
+			</li>
+			<li class="l_Head">
+				<a href="#">在线咨询</a>
+			</li>
+			<li class="l_Head">
+				<a href="#">地理位置</a>
+			</li>
+			<li class="l_Head">
+				<a href="#">最新消息</a>
+			</li>
+			<li class="r_Head">
+                {% if params.userName %}
+                欢迎你：{{params.userName}}
+                <span> | </span>
+				<a href="/Exit">[ 注销 ]</a>
+                {% else %}
+                <a href="/Login">[ 登录 ]</a>
+				<span> | </span>
+				<a href="/Register">[ 注册 ]</a>
+                {% endif %}
+			</li>
+		</ul>
+	</div>
+	<!-- 主体 -->
+	<div id="main">
+		<!-- 顶部框 -->
+		<div id="top"></div>
+		<!-- 主体左部 -->
+		<div id='left_main'>
+			<!-- 最新公告 -->
+			<div id="Notice">
+				<h2>医院最新公告</h2>
+				<marquee direction=up height="40" scrollamount="1" onmouseover=info1.stop() onmouseout=info1.start()>
+                                    1、为不影响您的就医，请于就诊前1-14个工作日提交预约需求；
+                                    2、网站信息仅供参考，具体出诊和收费情况以医院为准
+                </marquee>
+			</div>
+			<!-- 随便添加一点图片 -->
+			<div id="icon">
+				<img src="../static/image/icon/icon_yuyuezhuyuan_grey.png">
+				<img src="../static/image/icon/icon_daoyipeizhen_grey.png">
+				<img src="../static/image/icon/icon_yuyuetijian_grey.png">
+				<img src="../static/image/icon/icon_dingdianyiyuan_grey.png">
+				<img src="../static/image/icon/icon_yuanchengxindian_grey.png">
+			</div>
+			<!-- 特色科室 -->
+			<div id="characteristic">
+				<h2>医院特色科室</h2>
+				<div>
+					{% for department in params.departments %}
+                    {% if department.special %}
+                        <a href="/details?id={{ department.id }}">{{ department.department }}</a>
+                    {% endif %}
+                    {% endfor %}
+				</div>
+			</div>
+		</div>
+		<!-- 主体右部 -->
+		<div id='right_main'>
+			<!-- 图片展示 -->
+			<div id="dis_picture">
+				<img src="../static/image/hos/gdskq_1.jpg">
+				<img src="../static/image/hos/gdskq_2.jpg">
+				<img src="../static/image/hos/gdskq_3.jpg">
+				<img src="../static/image/hos/gdskq_4.jpg">
+			</div>
+			<!-- 医院概况 -->
+			<div id="survey">
+				<p class="top_sur">
+					<img src="../static/image/list_1.PNG">
+					<a href="#">更多>></a>
+				</p>
+				<p class="bot_sur">
+					<a href="#">
+						广东省口腔医院座落在广州市江南大道南366号，是华南地区最有规模的临床口腔医院，亦是我国最早建立的五大口腔医院之一，至今已有40年的历史。医院就诊环境，拥有现代化的诊室和病房，国际先进的医疗设备，加以严谨科学的管理，雄厚的技术力量，为四面八方的口腔患者提供优质的专科服务。<br><br>　　本院按照国际口腔医院医学专科分类，设立17个专业科室，半数以上医生获高级职称，并有一大批博士、硕士毕业生以及...... ......
+					</a>
+				</p>
+			</div>
+			<!-- 科室列表 -->
+			<div id="department">
+				<p class="top_dep">
+					<img src="../static/image/list_2.PNG">
+					<a href="#">更多>></a>
+				</p>
+				<p class="bot_dep">
+                    {% for department in params.departments %}
+                    <a href="/details?id={{ department.id }}">{{ department.department }}</a>
+                    {% endfor %}
+				</p>
+			</div>
+			<!-- 专家推荐 -->
+			<div id="expert">
+				<p class="top_expert">
+					<img src="../static/image/list_3.PNG">
+					<a href="#">更多>></a>
+				</p>
+				<table class="bot_expert">
+					<thead>
+						<tr>
+							<th>专家姓名</th>
+							<th>所属科室</th>
+							<th>临床职称</th>
+							<th>擅长治疗</th>
+						</tr>
+
+					</thead>
+					<tbody>
+							<tr>
+								<td>
+									<a href="#">林仪</a>
+								</td>
+								<td>
+									<a href="">牙体牙髓</a>
+								</td>
+								<td>主任医师</td>
+								<td class="table_last">专长牙周病和牙体牙髓病</td>
+							</tr>
+<!-- 						{% for e in expert %}
+							<tr>
+								<td>
+									<a href="#">{{e.name}}</a>
+								</td>
+								<td>
+									<a href="">{{e.department}}</a>
+								</td>
+								<td>{{e.title}}</td>
+								<td class="table_last">{{e.treatment}}</td>
+							</tr>
+						{% endfor %} -->
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<div id="bottom"></div>
+	</div>
+</body>
+</html>
