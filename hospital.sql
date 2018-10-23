@@ -142,6 +142,340 @@ INSERT INTO `doctor` VALUES (73, '钱枫', '男', '副主任医师', '对口腔�
 INSERT INTO `doctor` VALUES (74, '井澜', '女', '主任医师', '对口腔各类义齿修复。', 0.0, 17, 1, '井澜，女，医学博士，擅长对口腔各类义齿修复，主任医师。');
 
 
+-- id          
+-- doctor_id       医生id    
+-- date            日期  
+-- am_status       上午是否允许预约    
+-- am_quota        上午允许预约人数    
+-- pm_status       下午是否允许预约    
+-- pm_quota        下午允许预约人数    
+
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (1, '2018-10-23', 1, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (1, '2018-10-24', 0, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (1, '2018-10-25', 1, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (1, '2018-10-26', 0, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (1, '2018-10-27', 1, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (1, '2018-10-28', 1, 10, 0, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (1, '2018-10-29', 1, 10, 1, 10);
+
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (2, '2018-10-23', 1, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (2, '2018-10-24', 1, 10, 0, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (2, '2018-10-25', 1, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (2, '2018-10-26', 0, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (2, '2018-10-27', 1, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (2, '2018-10-28', 1, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (2, '2018-10-29', 1, 10, 1, 10);
+
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (3, '2018-10-23', 1, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (3, '2018-10-24', 1, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (3, '2018-10-25', 0, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (3, '2018-10-26', 1, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (3, '2018-10-27', 1, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (3, '2018-10-28', 1, 10, 0, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (3, '2018-10-29', 1, 10, 1, 10);
+
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (4, '2018-10-23', 0, 10, 0, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (4, '2018-10-24', 1, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (4, '2018-10-25', 1, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (4, '2018-10-26', 1, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (4, '2018-10-27', 0, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (4, '2018-10-28', 1, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (4, '2018-10-29', 1, 10, 1, 10);
+
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (5, '2018-10-23', 1, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (5, '2018-10-24', 1, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (5, '2018-10-25', 0, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (5, '2018-10-26', 1, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (5, '2018-10-27', 1, 10, 0, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (5, '2018-10-28', 1, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (5, '2018-10-29', 1, 10, 1, 10);
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (6, '2018-10-23', 1, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (6, '2018-10-24', 0, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (6, '2018-10-25', 1, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (6, '2018-10-26', 0, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (6, '2018-10-27', 0, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (6, '2018-10-28', 1, 10, 0, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (6, '2018-10-29', 0, 10, 1, 10);
+
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (7, '2018-10-23', 1, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (7, '2018-10-24', 1, 10, 0, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (7, '2018-10-25', 1, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (7, '2018-10-26', 0, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (7, '2018-10-27', 1, 10, 0, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (7, '2018-10-28', 1, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (7, '2018-10-29', 1, 10, 1, 10);
+
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (8, '2018-10-23', 1, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (8, '2018-10-24', 1, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (8, '2018-10-25', 1, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (8, '2018-10-26', 1, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (8, '2018-10-27', 1, 10, 0, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (8, '2018-10-28', 1, 10, 0, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (8, '2018-10-29', 0, 10, 1, 10);
+
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (9, '2018-10-23', 0, 10, 0, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (9, '2018-10-24', 1, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (9, '2018-10-25', 1, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (9, '2018-10-26', 1, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (9, '2018-10-27', 0, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (9, '2018-10-28', 1, 10, 0, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (9, '2018-10-29', 1, 10, 1, 10);
+
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (10, '2018-10-23', 1, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (10, '2018-10-24', 1, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (10, '2018-10-25', 0, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (10, '2018-10-26', 1, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (10, '2018-10-27', 0, 10, 0, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (10, '2018-10-28', 1, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (10, '2018-10-29', 1, 10, 1, 10);
+
+>>>>>>>>>>>>>>>>>>
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (11, '2018-10-23', 1, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (11, '2018-10-24', 0, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (11, '2018-10-25', 1, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (11, '2018-10-26', 0, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (11, '2018-10-27', 1, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (11, '2018-10-28', 0, 10, 0, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (11, '2018-10-29', 1, 10, 1, 10);
+
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (12, '2018-10-23', 1, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (12, '2018-10-24', 1, 10, 0, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (12, '2018-10-25', 1, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (12, '2018-10-26', 0, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (12, '2018-10-27', 1, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (12, '2018-10-28', 0, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (12, '2018-10-29', 1, 10, 1, 10);
+
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (13, '2018-10-23', 0, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (13, '2018-10-24', 1, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (13, '2018-10-25', 0, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (13, '2018-10-26', 1, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (13, '2018-10-27', 1, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (13, '2018-10-28', 1, 10, 0, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (13, '2018-10-29', 1, 10, 1, 10);
+
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (14, '2018-10-23', 0, 10, 0, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (14, '2018-10-24', 0, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (14, '2018-10-25', 1, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (14, '2018-10-26', 1, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (14, '2018-10-27', 0, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (14, '2018-10-28', 1, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (14, '2018-10-29', 1, 10, 1, 10);
+
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (15, '2018-10-23', 1, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (15, '2018-10-24', 1, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (15, '2018-10-25', 0, 10, 0, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (15, '2018-10-26', 1, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (15, '2018-10-27', 1, 10, 0, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (15, '2018-10-28', 1, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (15, '2018-10-29', 1, 10, 1, 10);
+
+>>>>>>>>>>>>>>>>>>
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (16, '2018-10-23', 1, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (16, '2018-10-24', 0, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (16, '2018-10-25', 1, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (16, '2018-10-26', 0, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (16, '2018-10-27', 1, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (16, '2018-10-28', 1, 10, 0, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (16, '2018-10-29', 1, 10, 1, 10);
+
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (17, '2018-10-23', 1, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (17, '2018-10-24', 1, 10, 0, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (17, '2018-10-25', 1, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (17, '2018-10-26', 0, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (17, '2018-10-27', 1, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (17, '2018-10-28', 1, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (17, '2018-10-29', 1, 10, 1, 10);
+
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (18, '2018-10-23', 1, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (18, '2018-10-24', 1, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (18, '2018-10-25', 0, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (18, '2018-10-26', 1, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (18, '2018-10-27', 1, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (18, '2018-10-28', 1, 10, 0, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (18, '2018-10-29', 1, 10, 1, 10);
+
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (19, '2018-10-23', 0, 10, 0, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (19, '2018-10-24', 1, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (19, '2018-10-25', 1, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (19, '2018-10-26', 1, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (19, '2018-10-27', 0, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (19, '2018-10-28', 1, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (19, '2018-10-29', 1, 10, 1, 10);
+
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (20, '2018-10-23', 1, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (20, '2018-10-24', 1, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (20, '2018-10-25', 0, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (20, '2018-10-26', 1, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (20, '2018-10-27', 1, 10, 0, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (20, '2018-10-28', 1, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (20, '2018-10-29', 1, 10, 1, 10);
+
+>>>>>>>>>>>>>>>>>>>
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (21, '2018-10-23', 1, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (21, '2018-10-24', 0, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (21, '2018-10-25', 1, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (21, '2018-10-26', 0, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (21, '2018-10-27', 1, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (21, '2018-10-28', 1, 10, 0, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (21, '2018-10-29', 1, 10, 1, 10);
+
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (22, '2018-10-23', 1, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (22, '2018-10-24', 1, 10, 0, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (22, '2018-10-25', 1, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (22, '2018-10-26', 0, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (22, '2018-10-27', 1, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (22, '2018-10-28', 1, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (22, '2018-10-29', 1, 10, 1, 10);
+
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (23, '2018-10-23', 1, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (23, '2018-10-24', 1, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (23, '2018-10-25', 0, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (23, '2018-10-26', 1, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (23, '2018-10-27', 1, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (23, '2018-10-28', 1, 10, 0, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (23, '2018-10-29', 1, 10, 1, 10);
+
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (24, '2018-10-23', 0, 10, 0, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (24, '2018-10-24', 1, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (24, '2018-10-25', 1, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (24, '2018-10-26', 1, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (24, '2018-10-27', 0, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (24, '2018-10-28', 1, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (24, '2018-10-29', 1, 10, 1, 10);
+
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (25, '2018-10-23', 1, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (25, '2018-10-24', 1, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (25, '2018-10-25', 0, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (25, '2018-10-26', 1, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (25, '2018-10-27', 1, 10, 0, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (25, '2018-10-28', 1, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (25, '2018-10-29', 1, 10, 1, 10);
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (26, '2018-10-23', 1, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (26, '2018-10-24', 0, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (26, '2018-10-25', 1, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (26, '2018-10-26', 0, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (26, '2018-10-27', 1, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (26, '2018-10-28', 1, 10, 0, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (26, '2018-10-29', 1, 10, 1, 10);
+
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (27, '2018-10-23', 1, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (27, '2018-10-24', 1, 10, 0, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (27, '2018-10-25', 1, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (27, '2018-10-26', 0, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (27, '2018-10-27', 1, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (27, '2018-10-28', 1, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (27, '2018-10-29', 1, 10, 1, 10);
+
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (28, '2018-10-23', 1, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (28, '2018-10-24', 1, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (28, '2018-10-25', 0, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (28, '2018-10-26', 1, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (28, '2018-10-27', 1, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (28, '2018-10-28', 1, 10, 0, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (28, '2018-10-29', 1, 10, 1, 10);
+
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (29, '2018-10-23', 0, 10, 0, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (29, '2018-10-24', 1, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (29, '2018-10-25', 1, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (29, '2018-10-26', 1, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (29, '2018-10-27', 0, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (29, '2018-10-28', 1, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (29, '2018-10-29', 1, 10, 1, 10);
+
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (30, '2018-10-23', 1, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (30, '2018-10-24', 1, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (30, '2018-10-25', 0, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (30, '2018-10-26', 1, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (30, '2018-10-27', 1, 10, 0, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (30, '2018-10-28', 1, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (30, '2018-10-29', 1, 10, 1, 10);
+
+>>>>>>>>>>>>>>>>>>
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (31, '2018-10-23', 1, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (31, '2018-10-24', 0, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (31, '2018-10-25', 1, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (31, '2018-10-26', 0, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (31, '2018-10-27', 1, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (31, '2018-10-28', 1, 10, 0, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (31, '2018-10-29', 1, 10, 1, 10);
+
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (32, '2018-10-23', 1, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (32, '2018-10-24', 1, 10, 0, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (32, '2018-10-25', 1, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (32, '2018-10-26', 0, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (32, '2018-10-27', 1, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (32, '2018-10-28', 1, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (32, '2018-10-29', 1, 10, 1, 10);
+
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (33, '2018-10-23', 1, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (33, '2018-10-24', 1, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (33, '2018-10-25', 0, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (33, '2018-10-26', 1, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (33, '2018-10-27', 1, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (33, '2018-10-28', 1, 10, 0, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (33, '2018-10-29', 1, 10, 1, 10);
+
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (34, '2018-10-23', 0, 10, 0, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (34, '2018-10-24', 1, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (34, '2018-10-25', 1, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (34, '2018-10-26', 1, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (34, '2018-10-27', 0, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (34, '2018-10-28', 1, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (34, '2018-10-29', 1, 10, 1, 10);
+
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (35, '2018-10-23', 1, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (35, '2018-10-24', 1, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (35, '2018-10-25', 0, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (35, '2018-10-26', 1, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (35, '2018-10-27', 1, 10, 0, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (35, '2018-10-28', 1, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (35, '2018-10-29', 1, 10, 1, 10);
+
+>>>>>>>>>>>>>>>>>>
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (36, '2018-10-23', 1, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (36, '2018-10-24', 0, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (36, '2018-10-25', 1, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (36, '2018-10-26', 0, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (36, '2018-10-27', 1, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (36, '2018-10-28', 1, 10, 0, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (36, '2018-10-29', 1, 10, 1, 10);
+
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (37, '2018-10-23', 1, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (37, '2018-10-24', 1, 10, 0, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (37, '2018-10-25', 1, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (37, '2018-10-26', 0, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (37, '2018-10-27', 1, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (37, '2018-10-28', 1, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (37, '2018-10-29', 1, 10, 1, 10);
+
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (38, '2018-10-23', 1, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (38, '2018-10-24', 1, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (38, '2018-10-25', 0, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (38, '2018-10-26', 1, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (38, '2018-10-27', 1, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (38, '2018-10-28', 1, 10, 0, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (38, '2018-10-29', 1, 10, 1, 10);
+
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (39, '2018-10-23', 0, 10, 0, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (39, '2018-10-24', 1, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (39, '2018-10-25', 1, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (39, '2018-10-26', 1, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (39, '2018-10-27', 0, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (39, '2018-10-28', 1, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (39, '2018-10-29', 1, 10, 1, 10);
+
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (40, '2018-10-23', 1, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (40, '2018-10-24', 1, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (40, '2018-10-25', 0, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (40, '2018-10-26', 1, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (40, '2018-10-27', 1, 10, 0, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (40, '2018-10-28', 1, 10, 1, 10);
+INSERT INTO `timeline`(doctor_id, date, am_status, am_quota, pm_status, pm_quota) VALUES (40, '2018-10-29', 1, 10, 1, 10);
 -- ----------------------------
 -- Table structure for patient_user
 -- ----------------------------
@@ -164,3 +498,5 @@ INSERT INTO `doctor` VALUES (74, '井澜', '女', '主任医师', '对口腔各�
 -- INSERT INTO `patient_user` VALUES ('1', 'zhouxin', '123456', 'vahssdfsa@qq.com', '周新', '13457352899', 'male');
 -- INSERT INTO `patient_user` VALUES ('4', 'xiaoming', '111111', '2455@qq.com', '小明', '13657875423', 'male');
 -- INSERT INTO `patient_user` VALUES ('5', 'xiaohong', '222222', '256565@163.com', '小红', '13657875424', 'male');
+
+

@@ -107,7 +107,7 @@
 	text-align: center;	
 }
 #right_main .appointment .work_dates{
-	margin-right: 5px;
+	margin-right: 15px;
 }
 #right_main .appointment li{
 	height: 25px;
@@ -115,6 +115,7 @@
 
 #right_main .appointment .appointment_buttom{
 	clear: both;
+	margin-bottom: 10px;
 }
 /* 设置分页信息 */
 #right_main .paging{

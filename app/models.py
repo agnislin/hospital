@@ -55,7 +55,8 @@ class Doctor(db.Model):
     department_id = db.Column(db.Integer, db.ForeignKey('department.id'))   #所在科室
     isRegister = db.Column(db.Boolean)            #是否为网上挂号
     brief = db.Column(db.Text, nullable=False)              #个人简介
-    
+
+    timelines = db.relationship('Timeline', backref='doctor', lazy='dynamic')    
 
     def __init__(self, name, sex, title, skill, price, department_id, isRegister, brief):
         self.name = name
@@ -75,4 +76,19 @@ class Timeline(db.Model):
     __tablename__ = 'timeline'
     id = db.Column(db.Integer, primary_key=True)
     doctor_id = db.Column(db.Integer, db.ForeignKey('doctor.id'))   #关联医生id
-    date = db.Column(db.Date, nullable=False)
+    date = db.Column(db.Date, nullable=False)   #日期
+    am_status = db.Column(db.Boolean)       #上午是否允许预约
+    am_quota = db.Column(db.Integer)        #上午允许预约人数
+    pm_status = db.Column(db.Boolean)       #下午是否允许预约
+    pm_quota = db.Column(db.Integer)        #下午允许预约人数    
+
+    def __init__(self, doctor_id, date, am_status, am_quota, pm_status, pm_quota):
+        self.doctor_id = doctor_id
+        self.date = date
+        self.am_status = am_status
+        self.am_quota = am_quota
+        self.pm_status = pm_status
+        self.pm_quota = pm_quota
+
+    def __repr__(self):
+        return "<date:%r doctor:%r>" % (self.date, self.doctor_id)

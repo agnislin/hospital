@@ -8,6 +8,7 @@ from .. import db
 from ..models import *
 
 import os
+from datetime import *
 
 @main.before_app_first_request
 def first():
@@ -47,20 +48,19 @@ def details():
         department = Department.query.filter_by(id=request.args.get('id')).first()
         # 根据医生总数计算页数
         numbers = department.doctors.count()
-        pages = numbers/3 if numbers%3==0 else numbers//3+1
+        pages = numbers//3 if numbers%3==0 else numbers//3+1
         # 获分分页的页数，返回符合页数的医生
         page = 1 if not request.args.get('page') else (pages if int(request.args.get('page'))>\
                 pages else int(request.args.get('page')))
         docorts = department.doctors.limit(3*page).offset(3*(page-1)).all()
         return render_template('Details.html',params=locals())
     else:
-        return redirect('/')
+        if 'userName' in session:
+            userName = session['userName']
+        # 根据请求条件查询医生
+        department = Department.query.filter_by(id=request.form.get('id')).first()
+        date =  request.form.get('hosdate')
+        numbers = department.doctors.count()
 
-@main.route('/introduce')
-def introduce():
-    if request.args['id']:
-        department = Department.query.filter_by(id=request.args.get('id')).first()
-        text = department.introduce
-        return text
-    else:
-        redirect(request.headers['referer'])
+        return render_template('Details.html',params=locals())
+

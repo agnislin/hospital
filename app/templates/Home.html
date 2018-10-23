@@ -125,11 +125,10 @@
 			<div id="department">
 				<p class="top_dep">
 					<img src="/static/image/list_2.PNG">
-					<a href="#">更多>></a>
 				</p>
 				<p class="bot_dep">
 					{% for d in params.departments  %}
-                    	<a href="#" >{{d.department}}</a>
+                    	<a href="/details?id={{ d.id }}" >{{d.department}}</a>
 					{% endfor %}
 				</p>				
 			</div>
