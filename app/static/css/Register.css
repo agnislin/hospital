@@ -1,0 +1,126 @@
+body,h1,h2,h3,ul,ol,p,table,th,td{
+    margin: 0;
+    padding: 0;
+}
+
+img{
+    vertical-align: middle;
+}
+
+ul,ol{
+    list-style: none;
+}
+
+/**/
+#Navigation{
+    height: 25px;
+    background-color: #EFEFEF;
+}
+
+#container{
+    width: 960px;
+    margin: 0 auto;
+}
+
+/*首部栏框*/
+#head{
+    height: 50px;
+    border-bottom: 3px solid #009D79;
+}
+
+#head li{
+    float: left;
+}
+
+#head .head1{
+    width: 125px;
+    height: 35px;
+    background-color: #009D79;
+    border-radius: 5px 5px 0 0;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 35px;
+    text-align: center;
+    position: relative;
+    top: 15px; 
+
+}
+#head .head2{
+    color: #009D79;
+    font-size: 20px;
+    font-weight: bold;
+    margin-left: 250px; 
+    position: relative;
+    top: 20px; 
+}
+#head .head3{
+    color: #8F8F8F;
+    font-size: 16px;
+    font-weight: bold;
+    margin-left: 70px; 
+    position: relative;
+    top: 23px; 
+}
+
+/*提示框*/
+#tip{
+    font-size: 12px;
+    margin: 10px 0 5px 0;
+}
+
+/*登录主体*/
+#main table{
+    margin: 0 auto;
+    padding-left: 50px;
+}
+#main td{
+    padding-top: 18px;
+}
+
+#main .left{
+    text-align: right;
+    padding-right: 10px;
+    color: #666666;
+    vertical-align: top;
+}
+
+#main .left>span{
+    color: red;
+}
+
+#main .right{
+    font-size: 12px;
+    color: #999999;
+}
+
+#main .right>span{
+    color: red;
+}
+
+#main .right>input{
+    width: 200px;
+    height: 17px;
+    padding: 4px 0;
+    padding-left: 5px;
+    color: #999999;
+    outline: none;
+}
+
+#main .right>#sex>input{
+    vertical-align: bottom;
+}
+
+#main #accept{
+    text-align: center;
+    margin: 20px 0;
+}
+
+#main #servitems{
+    text-align: center;
+    padding-bottom: 30px;
+}
+#main #servitems>textarea{
+    color: #333333;
+    line-height: 20px;
+}
