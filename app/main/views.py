@@ -50,10 +50,11 @@ def details():
         department = Department.query.filter_by(id=request.args.get('id')).first()
         # 优先根据医生的姓名来进行查询
         doctor_name = request.args.get('name')
-        if doctor_name:
-            doctors = department.doctors.filter(Doctor.name.like('%'+doctor_name+'%')).all()
-        else:
+        if (not doctor_name) or doctor_name=="##":
+            doctor_name = "##"
             doctors = department.doctors.all()
+        else:
+            doctors = department.doctors.filter(Doctor.name.like('%'+doctor_name+'%')).all()
 
         # 根据请求日期查找
         date =  request.args.get('hosdate')
@@ -69,7 +70,7 @@ def details():
             return render_template('Details.html',params=locals())
         else:
             # 根据请求查询条件进行查询
-            count = 0
+            count = 0 
             select_doctor = []
             for doctor in doctors:
                 if doctor.timelines.filter(Timeline.date==date, or_(Timeline.am_status==1, \
