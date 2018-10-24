@@ -1,4 +1,5 @@
 from flask import request, render_template, redirect, session
+from sqlalchemy import or_ , and_
 from ..models import *
 from .. import db
 

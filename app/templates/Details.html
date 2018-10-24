@@ -9,11 +9,22 @@
         $(function(){
             // 选中页面并标红
             $("#page_{{params.page}}").css('color','red'); 
-            // 表单提交时获取页数请求
-            $('form').submit(function(){
-                var page_val = 
+            // 根据查询条件进行请求,
+            $('#btn').click(function(){
+                var hosdate = $('#hosdate').val();
+                var name = $('#doctor_text').val();
+                location.href = "/details?id={{params.department.id}}&hosdate="+hosdate +"&name="+name;
             })
+            // 设置默认选择条件和设置医生默认姓名
+            $('#hosdate').children('[value="{{params.date}}"]').attr('selected',true);
+            $('doctor_text').val('{{params.doctor_name}}')
 
+            // 页数查询添加查询条件
+            var $paging_page = $('.paging_page a');
+            for (let i=0; i<$paging_page.length; i++){
+                var href = $($paging_page[i]).attr('href');
+                $($paging_page[i]).attr('href',href+"&hosdate={{params.date}}"+"&name={{params.doctor_name}}");
+            }
         })
     </script>
 {% endblock %}
@@ -37,7 +48,7 @@
     <!-- 设置右侧 专家出诊 -->
     <div class="doctor_work">
         <h3>该科室专家出诊情况</h3>
-        <form action="details" method="POST">
+        <div>
             <input type='hidden' name='id' value='{{params.department.id}}'/>
             <input type='hidden' name='page' value=''/>
             <select name="hosdate" id="hosdate">
@@ -50,9 +61,9 @@
                 专长：<input type="text" id="specialty" name="specialty">
             </p>
             <p>
-                <input type="submit" id="btn" value="搜索一下">
+                <input type="button" id="btn" value="搜索一下">
             </p>
-        </form>
+        </div>
     </div>
     {% for doctor in  params.doctors %}
         <div class="appointment">
@@ -97,15 +108,17 @@
                                 <span>下午</span>
                             </li>
                             <li>
-                                {% if time.am_status %}
-                                    <a href="#" class="status_1">预约</a>
-                                {% else %}
-                                    &nbsp;&nbsp;&nbsp;&nbsp;
-                                {% endif %}
-                                {% if time.pm_status %}
-                                    <a href="#" class="status_2">预约</a>
-                                {% else %}
-                                    &nbsp;&nbsp;&nbsp;&nbsp;
+                                {% if params.date=="weeks" or params.sel_date==time.date %}
+                                    {% if time.am_status %}
+                                        <a href="#" class="status_1">预约</a>
+                                    {% else %}
+                                        &nbsp;&nbsp;&nbsp;&nbsp;
+                                    {% endif %}
+                                    {% if time.pm_status %}
+                                        <a href="#" class="status_2">预约</a>
+                                    {% else %}
+                                        &nbsp;&nbsp;&nbsp;&nbsp;
+                                    {% endif %}
                                 {% endif %}
                             </li>                    
                         </ul>
@@ -117,7 +130,7 @@
     {% endfor %}
     <div class="paging">
         <span class="paging_count">
-            << 总记录数=[{{params.numbers}}]-总页数=[{{params.pages}}] >>            
+            << 总记录数=[{{params.count}}]-总页数=[{{params.pages}}] >>            
         </span>
         <span class="paging_page">
             <a href="/details?id={{params.department.id}}&page=1">首页</a> 

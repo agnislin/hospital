@@ -1,5 +1,6 @@
 # 主业务逻辑中的视图和路由的定义
 from flask import render_template, request, session,redirect
+from sqlalchemy import or_ , and_
 # 导入蓝图程序，用于构建路由
 from . import main
 # 导入db，用于操作数据库
@@ -8,7 +9,7 @@ from .. import db
 from ..models import *
 
 import os
-from datetime import *
+from datetime import datetime
 
 @main.before_app_first_request
 def first():
@@ -45,33 +46,43 @@ def details():
     if request.method == "GET":
         if 'userName' in session:
             userName = session['userName']
-        department = Department.query.filter_by(id=request.args.get('id')).first()
-        # 根据医生总数计算页数
-        numbers = department.doctors.count()
-        pages = numbers//3 if numbers%3==0 else numbers//3+1
-        # 获分分页的页数，返回当前页数，和符合当前页数的医生
-        page = request.args.get('page')
-        page = 1 if not page else (pages if int(page)>pages else int(page))
-        doctors = department.doctors.limit(3*page).offset(3*(page-1)).all()
-        return render_template('Details.html',params=locals())
-    else:
-        if 'userName' in session:
-            userName = session['userName']
-        # 根据请求条件查询医生
-        department = Department.query.filter_by(id=request.form.get('id')).first()
-        date =  request.form.get('hosdate')
-        doctors = department.doctors.all()
-        count = 0
-        select_doctor = []
-        for doctor in doctors:
-            if doctor.timelines.filter(Timeline.date == date,or_(Timeline.am_status==1, \
-                                        Timeline.pm_status)==0).first():
-                select_doctor.append(doctor)
-                count += 1
-        pages = count//3 if count%3==0 else count//3+1
-        page = request.form.get('page')
-        page = pages if int(page)>pages else int(page)
-        doctors = select_doctor[(page-1)*3 : page*3]
 
-        return render_template('Details.html',params=locals())
+        department = Department.query.filter_by(id=request.args.get('id')).first()
+        # 优先根据医生的姓名来进行查询
+        doctor_name = request.args.get('name')
+        if doctor_name:
+            doctors = department.doctors.filter(Doctor.name.like('%'+doctor_name+'%')).all()
+        else:
+            doctors = department.doctors.all()
+
+        # 根据请求日期查找
+        date =  request.args.get('hosdate')
+        if (not date) or (date == "weeks"):
+            date = "weeks"
+            # 根据匹配的医生总数计算总页数
+            count = len(doctors)
+            pages = count//3 if count%3==0 else count//3+1
+            # 获取请求页，返回符合当前页数的医生
+            page = request.args.get('page')
+            page = 1 if not page else (pages if int(page)>pages else int(page))
+            doctors = doctors[(page-1)*3 : page*3]
+            return render_template('Details.html',params=locals())
+        else:
+            # 根据请求查询条件进行查询
+            count = 0
+            select_doctor = []
+            for doctor in doctors:
+                if doctor.timelines.filter(Timeline.date==date, or_(Timeline.am_status==1, \
+                                            Timeline.pm_status==1)).first():
+                    select_doctor.append(doctor)
+                    count += 1
+            # 根据查询结果的医生总数计算总页数
+            pages = count//3 if count%3==0 else count//3+1
+            # 获取请求页，返回符合当前页数的医生
+            page = request.args.get('page')
+            page = 1 if not page else (pages if int(page)>pages else int(page))
+            doctors = select_doctor[(page-1)*3 : page*3]
+            # 将日期转datetime.date类型，返回给模板进行日期匹配
+            sel_date = datetime.strptime(date,'%Y-%m-%d').date()
+            return render_template('Details.html',params=locals())
 

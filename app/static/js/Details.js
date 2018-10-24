@@ -1,7 +1,7 @@
 $(function(){
     function getdate(num){
         var currenTime = new Date();
-        console.log(currenTime)
+        // console.log(currenTime)
         currenTime.setTime = (currenTime.getTime()+1000*60*60*8);    
         currenTime.setDate(currenTime.getDate() + num);
         var year = currenTime.getFullYear()
@@ -25,7 +25,7 @@ $(function(){
         var select = getdate(i);
         var $option = $("<option></option>");
         $option.val(select.f_date);
-        $option.html(select.date + weeks[select.weekday]);
+        $option.html(select.s_date + weeks[select.weekday]);
         $('#hosdate').append($option);
     }  
 
@@ -35,7 +35,7 @@ $(function(){
         $work_dates = $($appointment[j]).find('.work_dates');
         for (let i=0; i<$work_dates.length; i++){
             var select = getdate(i+1);
-            $($work_dates[i]).children('.date').html(select.date)
+            $($work_dates[i]).children('.date').html(select.s_date)
             $($work_dates[i]).children('.week').html(weeks[select.weekday])
         } 
     } 
