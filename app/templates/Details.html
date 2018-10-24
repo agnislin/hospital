@@ -7,8 +7,13 @@
     <script type="text/javascript" src="/static/js/Details.js"></script>
     <script type="text/javascript">
         $(function(){
-            // 选中页面
-            $("#page_{{params.page}}").css('color','red');   
+            // 选中页面并标红
+            $("#page_{{params.page}}").css('color','red'); 
+            // 表单提交时获取页数请求
+            $('form').submit(function(){
+                var page_val = 
+            })
+
         })
     </script>
 {% endblock %}
@@ -34,13 +39,9 @@
         <h3>该科室专家出诊情况</h3>
         <form action="details" method="POST">
             <input type='hidden' name='id' value='{{params.department.id}}'/>
+            <input type='hidden' name='page' value=''/>
             <select name="hosdate" id="hosdate">
-                <option value="-1">近一星期内</option>
-            </select>
-            <select name="hostime" id="hostime">
-                <option value="-1">上(下)午</option>
-                <option value="上午">上午</option>
-                <option value="下午">下午</option>
+                <option value="weeks">近一星期内</option>
             </select>
             <p>
                 医生：<input type="text" id="doctor_text" name="doctor_text">
@@ -53,7 +54,7 @@
             </p>
         </form>
     </div>
-    {% for doctor in  params.docorts %}
+    {% for doctor in  params.doctors %}
         <div class="appointment">
             <!-- 设置预约头部信息 -->
             <div class="appointment_header">

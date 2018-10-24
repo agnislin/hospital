@@ -49,10 +49,10 @@ def details():
         # 根据医生总数计算页数
         numbers = department.doctors.count()
         pages = numbers//3 if numbers%3==0 else numbers//3+1
-        # 获分分页的页数，返回符合页数的医生
-        page = 1 if not request.args.get('page') else (pages if int(request.args.get('page'))>\
-                pages else int(request.args.get('page')))
-        docorts = department.doctors.limit(3*page).offset(3*(page-1)).all()
+        # 获分分页的页数，返回当前页数，和符合当前页数的医生
+        page = request.args.get('page')
+        page = 1 if not page else (pages if int(page)>pages else int(page))
+        doctors = department.doctors.limit(3*page).offset(3*(page-1)).all()
         return render_template('Details.html',params=locals())
     else:
         if 'userName' in session:
@@ -60,7 +60,18 @@ def details():
         # 根据请求条件查询医生
         department = Department.query.filter_by(id=request.form.get('id')).first()
         date =  request.form.get('hosdate')
-        numbers = department.doctors.count()
+        doctors = department.doctors.all()
+        count = 0
+        select_doctor = []
+        for doctor in doctors:
+            if doctor.timelines.filter(Timeline.date == date,or_(Timeline.am_status==1, \
+                                        Timeline.pm_status)==0).first():
+                select_doctor.append(doctor)
+                count += 1
+        pages = count//3 if count%3==0 else count//3+1
+        page = request.form.get('page')
+        page = pages if int(page)>pages else int(page)
+        doctors = select_doctor[(page-1)*3 : page*3]
 
         return render_template('Details.html',params=locals())
 
