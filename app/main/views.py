@@ -87,3 +87,19 @@ def details():
             sel_date = datetime.strptime(date,'%Y-%m-%d').date()
             return render_template('Details.html',params=locals())
 
+# his系统首页及登录
+@main.route('/His', methods=["GET", "POST"])
+def His_Home():
+    if request.method == "GET":
+        departments = Department.query.all()
+        return render_template("His_home.html", params = locals())
+    else:
+        username = request.form.get("user")
+        pswd = request.form.get('pwd')
+        if HisUser.query.filter(user_name=username, password=pswd).first:
+            id = request.form.get('department_id')
+            remember = request.form.get('checkbox')
+            print(username,password, id,'aaa',remember)
+        else:
+            
+        return render_template("Login.html", params = 'Error')

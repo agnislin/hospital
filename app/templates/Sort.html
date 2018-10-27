@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="../static/Sort.css">
+</head>
+<body>
+	<div id="container">
+		<div id="head">
+			<a href="#">
+				<img src="../static/image/hos_logo.png">
+			</a>
+			<h1>广东省口腔医院医护系统</h1>
+		</div>
+		<div id="main">
+			<!-- 导航 -->
+			<div id="Navigation">
+				<ul class="Nav_left">
+					<li>
+						<a href="">首页</a>
+					</li>
+					<li>
+						<a href="">医生排诊</a>
+					</li>
+					<li>
+						<a href="">科室信息</a>
+					</li>
+					<li>
+						<a href="">医生信息</a>
+					</li>
+				</ul>
+				<ul class="Nav_right">
+					<li>[林仪]</li>
+					<li>
+						<a href="">[退出]</a>
+					</li>
+				</ul>				
+			</div>
+			<!-- 科室列表 -->
+			<div id="depart_list">
+				<h4>科室列表</h4>
+				<ul>
+					<li>
+						<a href="">牙体牙髓</a>
+					</li>
+					<li>
+						<a href="">牙周病科</a>
+					</li>
+				</ul>
+			</div>
+			<!-- 右部主体 -->
+			<div id="main_right">
+				<div class="dept_name">
+					<span>科室：</span>
+					<span class="dept font_14">牙体牙髓</span>
+				</div>
+				<div class="sort">
+					<table>
+						<thead>
+							<tr>
+								<td class="width_80">出诊日期</td>
+								<td></td>
+								<td>
+									<p>周一</p>
+									<p class="date">2月27</p>
+								</td>
+								<td>
+									<p>周二</p>
+									<p class="date">2月27</p>
+								</td>
+								<td>
+									<p>周三</p>
+									<p class="date">2月27</p>
+								</td>
+								<td>
+									<p>周四</p>
+									<p class="date">2月27</p>
+								</td>
+								<td>
+									<p>周五</p>
+									<p class="date">2月27</p>
+								</td>
+								<td>
+									<p>周六</p>
+									<p class="date">2月27</p>
+								</td>
+								<td>
+									<p>周日</p>
+									<p class="date">2月27</p>
+								</td>
+								<td class="sort_set">
+									<p>周一</p>
+									<p class="date">2月27</p>
+								</td>
+								<td class="sort_set">
+									<p>周一</p>
+									<p class="date">2月27</p>
+								</td>
+								<td class="sort_set">
+								</td>
+							</tr>							
+						</thead>
+						<tbody>
+							<tr>
+								<td rowspan="2" class="pad_10">
+									<p class="doctor">林仪</p>
+									<p class="title font_14" >(主任的医师)</p>
+								</td>
+								<td class="pad_10">
+									<p>下</p>
+									<p>午</p>
+								</td>
+								<td>诊 (10)</td>
+								<td>休 </td>
+								<td>诊 (10)</td>
+								<td>诊 (10)</td>
+								<td>诊 (10)</td>
+								<td>诊 (10)</td>
+								<td>诊 (10)</td>
+								<td class="pad_10 font_14 set">
+									<p>
+										人数：<input type="text" name="number" class="number" value="10" >
+									</p>
+									<p>
+										<input type='radio' name='work_first_am' value="1" checked/>诊
+										<input type='radio' name='work_first_am' value="0"/>休
+									</p>
+								</td>
+								<td class="pad_10 font_14 set">
+									<p>
+										人数：<input type="text" name="number" class="number" value="10">
+									</p>
+									<p>
+										<input type='radio' name='work_next_am' value="1" checked/>诊
+										<input type='radio' name='work_next_am' value="0"/>休
+									</p>
+								</td>
+								<td>
+									<button class="btn">确认</button>
+									<span class="ok">√</span>
+								</td>								
+							</tr>
+							<tr>
+
+								<td class="pad_10">
+									<p>下</p>
+									<p>午</p>
+								</td>
+								<td>诊 (10)</td>
+								<td>休</td>
+								<td>诊 (10)</td>
+								<td>诊 (10)</td>
+								<td>诊 (10)</td>
+								<td>诊 (10)</td>
+								<td>诊 (10)</td>
+								<td class="pad_10 font_14 set">
+									<p>
+										人数：<input type="text" name="number" class="number" value="10">
+									</p>
+									<p>
+										<input type='radio' name='work_first_pm' value="1" checked/>诊
+										<input type='radio' name='work_first_pm' value="0"/>休
+									</p>
+								</td>
+								<td class="pad_10 font_14 set">
+									<p>
+										人数：<input type="text" name="number" class="number" value="10">
+									</p>
+									<p>
+										<input type='radio' name='work_next_pm' value="1" checked/>诊
+										<input type='radio' name='work_next_pm' value="0"/>休
+									</p>
+								</td>
+								<td>
+									<button class="btn">确认</button>
+									<span class="ok">√</span>
+								</td>								
+							</tr>
+
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<!-- 底部 -->
+			<div class="buttom"></div>
+		</div>
+	</div>
+</body>
+</html>
