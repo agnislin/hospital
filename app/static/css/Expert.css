@@ -1,0 +1,249 @@
+body,h1,h2,h3,ul,ol,p,table,th,td{
+    margin: 0;
+    padding: 0;
+}
+body{
+    font: 14px '宋体';
+}
+a{
+    font: 14px 'Microsoft Yahei';
+    text-decoration: none;
+    color: #00724B;
+}
+ul,ol{
+    list-style: none;
+}
+/*头部*/
+#head{
+    height: 110px;
+    background-color: #E3F7E5; 
+    margin-bottom: 20px;
+}
+#head p:first-child{
+    display: inline-block;
+    float: left;
+    font-weight: bold;
+    font-size: 25px;
+    color: #00724B;
+    line-height: 110px;
+    margin-left: 20px;
+}
+#head #pp{
+    display: inline-block;
+    float: lefts;
+    height: 20px;
+    background-color: #D6F1E0;
+    font-weight: lighter;
+    font-size: 14px;
+    color: #00724B;
+    line-height: 20px;
+    margin-left: 80px;
+    margin-top: 80px;
+}
+#head #pend{
+    display: inline-block;
+    float: right;
+    height: 22px;
+    background-color: #D6F1E0;
+    font-weight: lighter;
+    font-size: 14px;
+    color: #00724B;
+    line-height: 22px;
+    margin-right: 50px;
+    margin-top: 60px; 
+}
+#head #pend>img{
+    width: 40px;
+    height: 40px;
+    border-radius: 5px;
+}
+#head #pend>ul {
+    display: none;
+    width: 120px;
+    position: absolute;
+    right: 15px;
+    line-height: 40px;
+    text-align: center;
+    background-color: white;
+    overflow:　hidden;
+    /*调整元素堆叠顺序*/
+    z-index: 100;
+    box-#pend 0px 1px 16px 0 rgba(90, 109, 122, 0.41);
+}
+#head #pend>ul>li:hover{
+    background-color: #1F7150;
+}
+#head #pend>ul>li:hover>a{
+    color: white;
+}
+
+#head #pend>ul>span{
+    display: block;
+    color: #1F7150;
+    border-bottom: 1px solid #D8DBE0;
+}
+
+#head #pend:hover>ul{
+    display: block;
+}
+#main{
+    width: 1230px;
+    margin: 0 auto;
+}
+/*左部*/
+#left_main{
+    float: left;
+    width: 150px;
+    margin-left: 10px;
+}
+#left_main p{
+    width: 150px;
+    height: 28px;
+    background-color: #E3F7E5;
+    border-bottom: 1px solid #9BC9A2;
+}
+/*右部*/
+#right_main{
+    float: right;
+    width: 1050px;
+}
+.main{
+margin-bottom: 20px;
+}
+.head{
+background-color: #E3F7E5;
+height: 35px;
+margin-bottom: 20px;
+line-height: 35px;
+}
+.head>span{
+    display: inline-block;
+    color: #00724B;
+    font-weight: bold;
+    font-size: 16px;
+    margin-left: 20px;
+}
+.head a{
+    float: right;
+    font-size: 14px;
+    margin-right: 50px;
+    line-height: 35px;   
+}
+.head a:hover{
+    color: brown;
+}
+/*专家简介*/
+#photo{
+    float: left;
+    width: 90px;
+    height: 110px;
+    margin-left: 10px;
+    border: 1px solid #999;
+}
+#doctor-information{
+    margin-left: 140px;
+    padding-top: 5px;
+}
+#doctor-information>p{
+    margin-top: 5px;
+    height: 25px;
+}
+#doctor-information span{
+    display: inline-block;
+    width: 150px;
+    height: 22px;
+}
+#doctor-information .sp1{
+    margin-left: 220px;
+}
+#doctor-information .p1 a{
+    display: inline-block;
+    width: 65px;
+    height: 22px;
+    border-radius: 5px;
+    color: white;
+    text-align: center;
+    line-height: 22px;
+}
+#doctor-information #consult{
+    margin-left: 100px;
+    background-color: #F7A156;
+} 
+#doctor-information #order{
+    margin-left: 220px;
+    background-color: #77CAEB;
+}
+/*网上预约系统*/
+#title{
+    background-color: #E3F7E5; 
+    height: 30px;
+    line-height: 30px;
+    border: 1px solid #C1E0C6;
+    padding-left: 20px;
+}
+#title a{
+    font-weight: normal;
+    font-size: 14px;
+}
+#title a:last-child{
+    float: right;
+    margin-right: 50px;
+    line-height: 30px;
+}
+#content{
+    border: 1px solid #C1E0C6;
+}
+#content p{
+    margin-top: 10px;
+}
+#content p span,a{
+    margin-left: 20px;
+}
+#content p a{
+    padding-left: 10px;
+    font-weight: normal;
+    font-size: 14px;
+}
+#content table{
+    margin-left: 30px;
+    margin-top: 10px;
+    font-weight: lighter;
+}
+#content table tr th{
+    width: 40px;
+    height: 22px;
+    font-weight: lighter;
+}
+#content .date{
+    width: 80px;
+    height: 35px;
+}
+/*基本信息*/
+#base-content{
+    margin-left: 10px;
+    margin-bottom: 20px;
+}
+/*最新咨询*/
+#new-consult{
+    margin-left: 10px;
+    margin-bottom: 20px; 
+}
+#new-consult table tr th{
+    background-color: #F3F3F3;
+    font-weight: lighter;
+    height: 22px;
+    line-height: 22px;
+    text-align: left; 
+}
+/*最新预约*/
+#new-order{
+    margin-left: 10px;
+    margin-bottom: 20px;
+}
+#new-order table tr th{
+    background-color: #F3F3F3;
+    font-weight: lighter;
+    height: 22px;
+    line-height: 22px;
+    text-align: left; 
+}

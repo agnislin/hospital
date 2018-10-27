@@ -118,3 +118,28 @@ class HisUser(db.Model):
 
     def __repr__(self):
         return '<sName:%r>' % self.user_name
+
+
+#用户咨询表
+class Consult(db.Model):
+    __tablename__ = 'consult'
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('patient_user.id'))   #关联用户id
+    theme = db.Column(db.String(50), nullable=False)                #咨询主题
+    consult_time = db.Column(db.DateTime, nullable=False)           #咨询时间
+    content = db.Column(db.Text, nullable=False)                    #咨询内容
+    reply = db.Column(db.Text)                      #回复内容
+    doctor_id = db.Column(db.Integer, db.ForeignKey('doctor.id'))   #关联医生id
+    status = db.Column(db.Boolean)                                  #回复状态
+
+    def __init__(self, user_id, theme, consult_time, content, reply, doctor_id, status):
+        self.user_id = user_id
+        self.consult_time = consult_time
+        self.theme = theme
+        self.content = content
+        self.reply = reply
+        self.doctor_id = doctor_id
+        self.status = status
+
+    def __repr__(self):
+        return "<user:%r theme:%r>" % (self.user_id, self.theme)

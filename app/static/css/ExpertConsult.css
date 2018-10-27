@@ -1,0 +1,36 @@
+#dd p{
+    margin-bottom: 10px;
+    margin-left: 150px;
+}
+#dd span{
+    display: inline-block;
+    width: 50px;
+    text-align: right;
+}
+#p1{
+    height: 275px;
+}
+#dd #sp{
+    display: inline-block;
+    position: relative;
+    bottom: 135px;
+}
+textarea{
+    display: inline-block;
+    resize: none;
+}
+#uid{
+    width: 275px;
+}
+#theme{
+    width: 375px;
+}
+#dd #end{
+    margin-top: 10px;
+    margin-left: 330px;
+}
+#end input,button{
+    height: 30px;
+    line-height: 20px;
+    vertical-align: middle;
+}

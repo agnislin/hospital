@@ -103,3 +103,55 @@ def His_Home():
         else:
             
         return render_template("Login.html", params = 'Error')
+
+#专家预约咨询页面
+@main.route("/expert", methods=["GET", "POST"])
+def expert():
+    if request.method == "GET":
+        if "userName" in session:
+            userName = session["userName"]
+
+        consults = Consult.query.all()
+        #存储咨询用户名
+        d = {}
+        for c in consults:
+            d[c.user_id] = PatientUser.query.filter_by(id=c.user_id).first().user_name
+        doctor_id = request.args.get('id')
+        doctor = Doctor.query.filter_by(id=doctor_id).first()
+        if not doctor:
+            return render_template("404.html")
+        else:
+            department = Department.query.filter_by(id=doctor.department_id).first()
+            if doctor.isRegister:
+                str = "是"
+            else:
+                str = "否"
+            return render_template("Expert.html", params=locals())
+
+#咨询页面
+@main.route("/expertconsult", methods=["GET", "POST"])
+def expertconsult():
+    if request.method == "GET":
+        if "userName" in session:
+            userName = session["userName"]
+        doctor_id = request.args.get("id")
+        doctor = Doctor.query.filter_by(id=doctor_id).first()
+        department = Department.query.filter_by(id=doctor.department_id).first()
+        return render_template("ExpertConsult.html", params=locals())
+    elif request.method == "POST":
+        uname = request.form.get("username")
+        patient_user = PatientUser.query.filter_by(user_name=uname).first()
+        uid = patient_user.id
+        theme = request.form.get("theme")
+        content = request.form.get("content")
+        consult_time = request.form.get("consult_time")
+        reply = None
+        doctor_id = request.form.get("doctor_id")
+        status = False
+        c = Consult(uid, theme, consult_time, content, reply, doctor_id, status)
+        db.session.add(c)
+        return "提交成功!"
+
+@main.errorhandler(404)
+def page_not_found(e):
+    return render_template('404.html')

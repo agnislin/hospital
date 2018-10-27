@@ -1,0 +1,34 @@
+{% extends 'Expert.html' %}
+
+{% block link %}
+    <link rel="stylesheet" type="text/css" href="/static/css/Expert.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/ExpertConsult.css">
+    <script src="/static/js/jquery-1.11.3.js"></script>
+    <script src="/static/js/ExpertConsult.js"></script>
+{% endblock %}
+{% block inherit %}
+    <div class="main">
+        <div class="head">
+            <span>健康咨询</span>
+        </div>
+        <div id="dd">
+            <p>
+                <input id="doc_id" type="text" value="{{params.doctor_id}}" hidden="hidden">
+                <span>用户名:</span>
+                <input id="uid" type="text" name="userID" readonly="readonly" value="{{params.userName}}" > 
+            </p>
+            <p>
+                <span>主题:</span>
+                <input id="theme" type="text" name="theme">
+            </p>
+            <p id="p1">
+                <span id="sp">内容:</span>
+                <textarea id="text" cols="50" rows="18"></textarea>
+            </p>
+            <p id="end">
+                <input id="sub" type="submit" name="submit" value="提交">
+                <button>放弃</button>
+            </p>
+        </div>
+    </div>
+{% endblock %}
