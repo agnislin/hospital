@@ -101,8 +101,7 @@ def His_Home():
             remember = request.form.get('checkbox')
             print(username,password, id,'aaa',remember)
         else:
-            
-        return render_template("Login.html", params = 'Error')
+            return render_template("Login.html", params = 'Error')
 
 #专家预约咨询页面
 @main.route("/expert", methods=["GET", "POST"])
