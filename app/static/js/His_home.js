@@ -1,9 +1,11 @@
+// 点击科室登录
 function Login(id){
     $('.mypop').show();
     console.log(id);
     $('#department_id').val(id) ;
 }
 $(function () {
+    // 点击取消
     $('#cancel').click(function () {
         $('.mypop').hide();
     })

@@ -5,7 +5,6 @@
 
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
-from sqlalchemy import or_ , and_
 import pymysql
 pymysql.install_as_MySQLdb()
 
@@ -25,9 +24,10 @@ def create_app():
     # 数据库的初始化
     db.init_app(app)
 
+
     # 将main蓝图程序与app关联到一起
     from .main import main as main_blueprint
-    app.register_blueprint(main_blueprint)  
+    app.register_blueprint(main_blueprint) 
     # 将user蓝图程序与app关联到一起
     from .user import user as user_blueprint
     app.register_blueprint(user_blueprint)

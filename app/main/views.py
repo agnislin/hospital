@@ -9,12 +9,25 @@ from .. import db
 from ..models import *
 
 import os
-from datetime import datetime
+from datetime import datetime, date, timedelta
 
 @main.before_app_first_request
 def first():
     db.create_all()
 
+    # 自检查timeline表，构建完整的数据
+    today = date.today()
+    timelines = Timeline.query.filter(Timeline.date <= today).all()
+    for timeline in timelines:
+        db.session.delete(timeline)
+    for i in range(1,10):
+        next_day = today + timedelta(days = i)
+        if not Timeline.query.filter_by(date = next_day).first():
+            doctors = Doctor.query.all()
+            for doctor in doctors:
+                timeline = Timeline(doctor.id, next_day)
+                timeline.doctor = doctor
+                db.session.add(timeline)
 
 # 首页
 @main.route("/", methods=["GET", "POST"])
@@ -85,23 +98,47 @@ def details():
             doctors = select_doctor[(page-1)*3 : page*3]
             # 将日期转datetime.date类型，返回给模板进行日期匹配
             sel_date = datetime.strptime(date,'%Y-%m-%d').date()
+            print(type(sel_date))
             return render_template('Details.html',params=locals())
 
-# his系统首页及登录
-@main.route('/His', methods=["GET", "POST"])
-def His_Home():
+
+# his系统排班室
+@main.route('/Sort', methods=["GET", "POST"])
+def Sort():
     if request.method == "GET":
+        if "username" in session:
+            username = session["username"]
         departments = Department.query.all()
-        return render_template("His_home.html", params = locals())
+        # 通过科室id获取该科室的医生
+        depart_id =  request.args.get("depart_id")
+        if not depart_id:
+            depart_id = 1
+        # print(depart_id,77)
+        department = Department.query.filter_by(id = depart_id).first()
+        doctors = department.doctors.all()
+        count = len(doctors)
+        return render_template("Sort.html", params = locals())
     else:
-        username = request.form.get("user")
-        pswd = request.form.get('pwd')
-        if HisUser.query.filter(user_name=username, password=pswd).first:
-            id = request.form.get('department_id')
-            remember = request.form.get('checkbox')
-            print(username,password, id,'aaa',remember)
-        else:
-            return render_template("Login.html", params = 'Error')
+        depart_id = request.form.get("department_id")
+        doctors = Doctor.query.filter_by(department_id = int(depart_id)).all()
+        for doctor in doctors:
+            for timeline in doctor.timelines.order_by("date asc").limit(2).offset(7).all():
+                doctor_id = str(doctor.id)
+                timeline_date = str(timeline.date)
+                am_status = request.form.get('am_' + doctor_id + '_' + timeline_date)
+                pm_status = request.form.get('pm_' + doctor_id + '_' + timeline_date)
+                am_quota = request.form.get('amn_' + doctor_id + '_' + timeline_date)
+                pm_quota = request.form.get('pmn_' + doctor_id + '_' + timeline_date)
+                print("*",am_status,pm_status,am_quota,pm_quota, "*")
+                timeline.am_status = int(am_status)
+                timeline.pm_status = int(pm_status)
+                timeline.am_quota = int(am_quota)
+                timeline.pm_quota = int(pm_quota)
+                db.session.add(timeline)
+        resp = request.headers.get('referer','/His')
+        return redirect(resp)
+
+
 
 #专家预约咨询页面
 @main.route("/expert", methods=["GET", "POST"])
@@ -154,3 +191,5 @@ def expertconsult():
 @main.errorhandler(404)
 def page_not_found(e):
     return render_template('404.html')
+
+

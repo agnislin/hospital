@@ -99,7 +99,7 @@
                         <li>日期</li>
                         <li></li>
                     </ul>
-                    {% for time in doctor.timelines.all() %}
+                    {% for time in doctor.timelines.order_by('date asc').limit(7).all() %}
                         <ul class="work_dates">
                             <li class="date">1月1日</li>
                             <li class="week">星期一</li>

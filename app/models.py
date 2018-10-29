@@ -86,8 +86,8 @@ class Timeline(db.Model):
     pm_quota = db.Column(db.Integer, default=10)        #下午允许预约人数
     pm_sources = db.Column(db.Integer, default=10)       #上午剩余号源    
 
-    def __init__(self, doctor_id, date, am_status, am_quota, pm_status, pm_quota, \
-                am_sources, pm_sources):
+    def __init__(self, doctor_id, date, am_status=0, am_quota=10, am_sources=10, \
+                pm_status=0, pm_quota=10, pm_sources=10):
         self.doctor_id = doctor_id
         self.date = date
         self.am_status = am_status
@@ -100,6 +100,7 @@ class Timeline(db.Model):
     def __repr__(self):
         return "<date:%r doctor:%r>" % (self.date, self.doctor_id)
 
+# 医护人员账号表
 class HisUser(db.Model):
     __tablename__ = 'his_user'
     id = db.Column(db.Integer, primary_key=True)
@@ -143,3 +144,5 @@ class Consult(db.Model):
 
     def __repr__(self):
         return "<user:%r theme:%r>" % (self.user_id, self.theme)
+
+    

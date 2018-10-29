@@ -63,3 +63,52 @@ def Sign_out():
         resp = request.headers.get('referer','/')
         return redirect(resp)
 
+
+# his系统首页及登录
+@user.route('/His', methods=["GET", "POST"])
+def His_Home():
+    if request.method == "GET":          
+        departments = Department.query.all()
+        # 判断cookie是否保持存上次的登录记录，是则返回用户密名和密码
+        if 'username' in request.cookies:
+            username = request.cookies.get('username')
+            password =  HisUser.query.filter_by(user_name=username).first().password
+
+        return render_template("His_home.html", params = locals())
+    else:
+        username = request.form.get("user")
+        pswd = request.form.get('pwd')
+        his_user = HisUser.query.filter_by(user_name=username, password=pswd).first()
+        if his_user:
+            # 根据科室判断医生权限，错误则返回权限不够导致无法登录
+            # 由于前期科室表设计不完善，导致排班室登录逻辑不严谨，不想改了
+            depart_id = request.form.get('department_id')
+            print(his_user,111)
+            if his_user.department_id:
+                if his_user.department_id == int(depart_id):
+                    resp = redirect('/expert')
+                else:
+                    departments = Department.query.all()
+                    depart_name = Department.query.filter_by(id=depart_id).first().department
+                    Error = 'Error:depart'
+                    return render_template("His_home.html", params = locals())
+            else:
+                resp = redirect('/Sort')
+            #　保存登录状态到session
+            session['username'] = username
+            # 判断是否为记住密码，是则存储账号信息到cookie
+            if request.form.get('checkbox'):
+                resp.set_cookie('username', username, max_age= 60*60*24*365)
+
+            return resp
+        else:
+            departments = Department.query.all()
+            Error = 'Error:user'
+            return render_template("His_home.html", params = locals())
+
+# 注销处理
+@user.route('/His_Sign_out')
+def His_Sign_out():
+    if request.method == "GET":
+        del session['username']
+        return redirect('/His')
