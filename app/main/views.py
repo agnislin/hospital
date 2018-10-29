@@ -181,7 +181,7 @@ def expertconsult():
         theme = request.form.get("theme")
         content = request.form.get("content")
         consult_time = request.form.get("consult_time")
-        reply = None
+        reply = 0
         doctor_id = request.form.get("doctor_id")
         status = False
         c = Consult(uid, theme, consult_time, content, reply, doctor_id, status)
@@ -192,4 +192,39 @@ def expertconsult():
 def page_not_found(e):
     return render_template('404.html')
 
+#登录医生系统
+@main.route("/Hisindex", methods=["GET", "POST"])
+def hisindex():
+    if request.method == "GET":
+        if "username" in session:
+            username = session["username"]
+            doctor_id = HisUser.query.filter_by(user_name=username).first().doctor_id
+            consults = Consult.query.filter_by(doctor_id=doctor_id, status=False).all()
+            num = len(consults)
+            return render_template("Hisindex.html",params=locals())
 
+#查看咨询信息
+@main.route("/Hisconsult", methods=["GET", "POST"])
+def hisconsult():
+    if request.method == "GET":
+        if "username" in session:
+            username = session["username"]
+            doctor_id = request.args.get("doctor_id")
+            consults = Consult.query.filter_by(doctor_id=doctor_id, status=False).all()
+            d = {}
+            i = 1
+            for c in consults:
+                d[c] = i
+                i += 1
+            return render_template("Hisconsult.html",params=locals())
+
+#处理医生回复
+@main.route("/Hisreply", methods=["GET", "POST"])
+def hisreply():
+    reply = request.form.get("reply")
+    id = request.form.get("id")
+    consult = Consult.query.filter_by(id=id).first()
+    consult.reply = reply
+    consult.status = True
+    db.session.add(consult)
+    return "回复成功"

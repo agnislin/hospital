@@ -1,0 +1,38 @@
+{% extends "Hisindex.html" %}
+
+{% block link %}
+    <link rel="stylesheet" type="text/css" href="/static/css/Hisindex.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/Hisconsult.css">
+    <script type="text/javascript" src="/static/js/jquery-1.11.3.js"></script>
+    <script type="text/javascript" src="/static/js/Hisconsult.js"></script> 
+{% endblock %}
+        {% block inherit %}
+        <div id="content">
+            <h1>最新咨询</h1>
+            <div id="form">
+            {% for c in params.consults %}
+                <p>
+                    <input id="input" type="hidden" value="{{c.id}}">
+                    <span>序号:&nbsp&nbsp {{params.d[c]}}</span>
+                    <span id="time">咨询时间 :&nbsp&nbsp&nbsp&nbsp{{c.consult_time}}</span>
+                </p>
+                <p>
+                    咨询内容:
+                </p>
+                <p>
+                    <span id="cont">{{c.content}}</span> 
+                </p>
+                <p> 
+                    回复:
+                </p>
+                <p>
+                    <textarea id="ta" cols="75" rows="2"></textarea>
+                </p>
+                <p>
+                    <button id="sub">确认</button>
+                </p>
+            {% endfor %}
+            </div>
+        </div>
+        {% endblock %}
+        

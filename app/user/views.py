@@ -86,7 +86,7 @@ def His_Home():
             print(his_user,111)
             if his_user.department_id:
                 if his_user.department_id == int(depart_id):
-                    resp = redirect('/expert')
+                    resp = redirect('/Hisindex')
                 else:
                     departments = Department.query.all()
                     depart_name = Department.query.filter_by(id=depart_id).first().department
