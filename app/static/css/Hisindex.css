@@ -92,23 +92,23 @@ span{
     margin: 0 auto;
     border-radius: 5px;
 }
-#content #form{
+#content .form{
 
     margin: 10px auto;
     width: 850px;
     border: 1px solid #00724B;
 }
-#content #form p:first-child{
+#content .form p:first-child{
     padding: 10px 0;
 }
-#content #form p{
+#content .form p{
     margin-left: 15px;
 }
-#content #time{
+#content .time{
     float: right;
     margin-right: 30px;
 }
-#content #cont{
+#content .cont{
     width: 760px;
     height: 80px;
     overflow: scroll;

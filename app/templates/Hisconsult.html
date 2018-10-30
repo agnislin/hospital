@@ -9,30 +9,30 @@
         {% block inherit %}
         <div id="content">
             <h1>最新咨询</h1>
-            <div id="form">
             {% for c in params.consults %}
+            <div class="form">
                 <p>
-                    <input id="input" type="hidden" value="{{c.id}}">
+                    <input type="hidden" value="{{c.id}}">
                     <span>序号:&nbsp&nbsp {{params.d[c]}}</span>
-                    <span id="time">咨询时间 :&nbsp&nbsp&nbsp&nbsp{{c.consult_time}}</span>
+                    <span class="time">咨询时间 :&nbsp&nbsp&nbsp&nbsp{{c.consult_time}}</span>
                 </p>
                 <p>
                     咨询内容:
                 </p>
                 <p>
-                    <span id="cont">{{c.content}}</span> 
+                    <span class="cont">{{c.content}}</span> 
                 </p>
                 <p> 
                     回复:
                 </p>
                 <p>
-                    <textarea id="ta" cols="75" rows="2"></textarea>
+                    <textarea cols="75" rows="2"></textarea>
                 </p>
                 <p>
-                    <button id="sub">确认</button>
+                    <button class="sub">确认</button>
                 </p>
-            {% endfor %}
             </div>
+            {% endfor %}   
         </div>
         {% endblock %}
         
