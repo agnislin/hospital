@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="/static/css/Sort.css">
+    <script type="text/javascript" src="/static/js/jquery-1.11.3.js"></script>	
+	<script type="text/javascript" src="/static/js/Sort.js"></script>
+</head>
+<body>
+	<div id="container">
+		<div id="head">
+			<a href="#">
+				<img src="/static/image/hos_logo.png">
+			</a>
+			<h1>广东省口腔医院医护系统</h1>
+		</div>
+		<div id="main">
+			<!-- 导航 -->
+			<div id="Navigation">
+				<ul class="Nav_left">
+					<li>
+						<a href="/His">首页</a>
+					</li>
+					<li>
+						<a href="/Sort">预约排班</a>
+					</li>
+					<li>
+						<a href="">科室信息</a>
+					</li>
+					<li>
+						<a href="">医生信息</a>
+					</li>
+				</ul>
+				<ul class="Nav_right">
+					<li>{{params.username}}</li>
+					<li>
+						<a href="/His_Sign_out">[退出]</a>
+					</li>
+				</ul>				
+			</div>
+			<!-- 科室列表 -->
+			<div id="depart_list">
+				<h4>科室列表</h4>
+				<ul>
+					{% for depart in params.departments %}
+						<li>
+							<a href="/Sort?depart_id={{depart.id}}">{{depart.department}}</a>
+						</li>
+					{% endfor %}
+				</ul>
+			</div>
+			<!-- 右部主体 -->
+			<div id="main_right">
+				<div class="dept_name">
+					<span>科室：</span>
+					<span class="dept font_14">{{params.department.department}}</span>
+				</div>
+<form action="/Sort" method="POST">
+	<input type="hidden" name="department_id" value="{{params.department.id}}">
+	<div class="sort">
+		{% for doctor in params.doctors %}				
+			<table class="doctor_tbl">
+				<thead>
+					<tr>
+						<td class="width_80">出诊日期</td>
+						<td></td>
+						{% for i in range(7) %}
+							<td class="work_dates">
+								<p class="week">周一</p>
+								<p class="date">１月１</p>
+							</td>
+						{% endfor %}
+						{% for i in range(2) %}
+							<td class="sort_set">
+								<p class="week">周一</p>
+								<p class="date">１月１</p>
+							</td>	
+						{% endfor %}
+						<td></td>								
+					</tr>							
+				</thead>
+				<tbody>
+					<tr>
+						<td rowspan="2" class="pad_10">
+							<p class="doctor">{{doctor.name}}</p>
+							<p class="title font_14" >({{doctor.title}})</p>
+						</td>
+						<td class="pad_10">
+							<p>下</p>
+							<p>午</p>
+						</td>
+						{% for time in doctor.timelines.order_by("date asc").limit(7).all() %}
+							{% if time.am_status %}
+								<td>诊 ({{time.am_quota}})</td>
+							{% else %}
+								<td class="rest">休</td>
+							{% endif %}
+						{% endfor %}
+
+						{% for time in doctor.timelines.order_by("date asc").limit(2).offset(7).all() %}								
+							<td class="pad_10 font_14 set">
+								<p>
+									人数：<input type="text" name="amn_{{doctor.id}}_{{time.date}}" class="number" value="{{time.am_quota}}" >
+								</p>
+								<p>
+								{% if time.am_status %}	
+									<input type='radio' name='am_{{doctor.id}}_{{time.date}}' value="1" checked/>诊
+									<input type='radio' name='am_{{doctor.id}}_{{time.date}}' 	value="0"/>休
+								{% else %}
+									<input type='radio' name='am_{{doctor.id}}_{{time.date}}' value="1"/>诊
+									<input type='radio' name='am_{{doctor.id}}_{{time.date}}' 	value="0" checked/>休
+								{% endif %}	
+								</p>	
+							</td>
+						{% endfor %}
+						<td class="width_95">
+							<span class="btn" >确认</span>
+							<span class="ok"></span>
+						</td>								
+					</tr>
+					<tr>
+						<td class="pad_10">
+							<p>下</p>
+							<p>午</p>
+						</td>
+						{% for time in doctor.timelines.order_by("date asc").limit(7).all() %}
+							{% if time.pm_status %}
+								<td>诊 ({{time.pm_quota}})</td>
+							{% else %}
+								<td class="rest">休</td>
+							{% endif %}
+						{% endfor %}
+
+						{% for time in doctor.timelines.order_by("date asc").limit(2).offset(7).all() %}								
+							<td class="pad_10 font_14 set">
+								<p>
+									人数：<input type="text" name="pmn_{{doctor.id}}_{{time.date}}" class="number" value="{{time.pm_quota}}" >
+								</p>
+								<p>
+								{% if time.pm_status %}	
+									<input type='radio' name='pm_{{doctor.id}}_{{time.date}}' value="1" checked/>诊
+									<input type='radio' name='pm_{{doctor.id}}_{{time.date}}' 	value="0"/>休
+								{% else %}
+									<input type='radio' name='pm_{{doctor.id}}_{{time.date}}' value="1"/>诊
+									<input type='radio' name='pm_{{doctor.id}}_{{time.date}}' 	value="0" checked/>休
+								{% endif %}	
+								</p>	
+							</td>
+						{% endfor %}
+						<td class="width_95">
+							<span class="btn" >确认</span>
+							<span class="ok"></span>
+						</td>								
+					</tr>
+				</tbody>
+			</table>
+		{% endfor %}
+	</div>
+	<div class="submit">
+		<span><<　总记录数=[{{params.count}}]　>></span>
+		<input type="submit" value="提交">
+	</div>
+</form>
+				<!-- 底部 -->
+				<div class="buttom"></div>
+			</div>
+		</div>
+		<!-- 底部 -->
+		<div class="buttom"></div>
+	</div>
+</body>
+</html>

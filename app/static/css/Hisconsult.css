@@ -1,0 +1,39 @@
+#content .form h1{
+    width: 970px;
+    background-color: #E3F7E5;
+    height: 30px;
+    margin-bottom: 20px;
+    padding-left: 30px;
+    line-height: 30px;
+    color: #00724B;
+    font-weight: normal;
+    font-size: 16px;
+}
+#content .form{
+    font-size: 15px;
+}
+
+#content .form .xuhao{
+    color: blue;
+}
+#content .form .time{
+    font-size: 14px;
+}
+
+
+#content .form .zixun{
+    width: 730px;
+    color: black;
+    background-color: #F7F7F7;
+    padding-left: 20px;
+    padding-bottom: 5px;
+    font-size: 14px;
+    line-height: 25px;
+    margin:10px 0 10px 30px;
+}
+
+#content .form .sub{
+    left :700px; 
+    width: 70px;
+    height: 30px;
+}

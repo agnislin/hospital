@@ -1,0 +1,144 @@
+{% extends 'Home.html' %}
+
+{% block link %}
+    <link rel="stylesheet" type="text/css" href="/static/css/Public.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/Details.css">
+    <script type="text/javascript" src="/static/js/jquery-1.11.3.js"></script>
+    <script type="text/javascript" src="/static/js/Details.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            // 选中页面并标红
+            $("#page_{{params.page}}").css('color','red'); 
+            // 根据查询条件进行请求,
+            $('#btn').click(function(){
+                var hosdate = $('#hosdate').val();
+                var name = $('#doctor_text').val();
+                location.href = "/details?id={{params.department.id}}&hosdate="+hosdate +"&name="+name;
+            })
+            // 设置默认选择条件和设置医生默认姓名
+            $('#hosdate').children('[value="{{params.date}}"]').attr('selected',true);
+            $('doctor_text').val('{{params.doctor_name}}')
+
+            // 页数查询添加查询条件
+            var $paging_page = $('.paging_page a');
+            for (let i=0; i<$paging_page.length; i++){
+                var href = $($paging_page[i]).attr('href');
+                $($paging_page[i]).attr('href',href+"&hosdate={{params.date}}"+"&name={{params.doctor_name}}");
+            }
+        })
+    </script>
+{% endblock %}
+
+{% block inherit %}
+    <!-- 设置右侧 位置信息 -->
+    <div class="localtion">
+        您的位置：
+        <a href="/" class="index_a" style="font-size: 14px;">首页</a>
+        &nbsp;>>&nbsp;&nbsp;{{params.department.department }}
+        <a href="/Section" class="contain_img">
+            <img src="/static/image/ks.gif">
+        </a>
+    </div>
+
+    <!-- 设置右侧 科室介绍 -->
+    <div class="introduce">
+        {% include '/department/' + params.department.introduce + '.html' %}
+    </div>
+
+    <!-- 设置右侧 专家出诊 -->
+    <div class="doctor_work">
+        <h3>该科室专家出诊情况</h3>
+        <div>
+            <input type='hidden' name='id' value='{{params.department.id}}'/>
+            <input type='hidden' name='page' value=''/>
+            <select name="hosdate" id="hosdate">
+                <option value="weeks">近一星期内</option>
+            </select>
+            <p>
+                医生：<input type="text" id="doctor_text" name="doctor_text">
+            </p>
+            <p>
+                专长：<input type="text" id="specialty" name="specialty">
+            </p>
+            <p>
+                <input type="button" id="btn" value="搜索一下">
+            </p>
+        </div>
+    </div>
+    {% for doctor in  params.doctors %}
+        <div class="appointment">
+            <!-- 设置预约头部信息 -->
+            <div class="appointment_header">
+                <!-- 设置预约头部左侧信息 -->
+                <div class="appointment_header_left">
+                    <a href="/">广东省口腔医院</a>
+                    &nbsp;>
+                    <a href="#">{{params.department.department}}</a>
+                    &nbsp;>&nbsp;
+                    {{doctor.title}}：<a href="/expert?id={{doctor.id}}" target='_blank'>{{doctor.name}}（{{doctor.sex}}）</a>
+                </div>
+                <!-- 设置预约头部右侧信息 -->
+                <div class="appointment_header_right">
+                    [<a href="#">查看医生详细资料</a>]
+                </div>
+            </div>
+            <!-- 设置详细预约信息 -->
+            <div class="appointment_content">
+                <div class="doctor_forte">
+                    <span>医师专长：{{doctor.skill}}</span>
+                    <span>挂号费用：{{doctor.price}}元</span>
+                    <span>
+                        [<a href="#">咨询此医生</a>]
+                    </span>
+                </div>
+                <!-- 预约排班信息 -->
+                <div class="appointment_cont">
+                    <ul>
+                        <li></li>
+                        <li>出诊</li>
+                        <li>日期</li>
+                        <li></li>
+                    </ul>
+                    {% for time in doctor.timelines.order_by('date asc').limit(7).all() %}
+                        <ul class="work_dates">
+                            <li class="date">1月1日</li>
+                            <li class="week">星期一</li>
+                            <li>
+                                <span>上午</span>
+                                <span>下午</span>
+                            </li>
+                            <li>
+                                {% if params.date=="weeks" or params.sel_date==time.date %}
+                                    {% if time.am_status %}
+                                        <a href="/Order?doctor_id={{time.doctor_id}}&date={{time.date}}&status=am" class="status_1">预约</a>
+                                    {% else %}
+                                        &nbsp;&nbsp;&nbsp;&nbsp;
+                                    {% endif %}
+                                    {% if time.pm_status %}
+                                        <a href="/Order?doctor_id={{time.doctor_id}}&date={{time.date}}&status=pm" class="status_2">预约</a>
+                                    {% else %}
+                                        &nbsp;&nbsp;&nbsp;&nbsp;
+                                    {% endif %}
+                                {% endif %}
+                            </li>                    
+                        </ul>
+                    {% endfor %}                       
+                </div>
+            </div>
+            <div class="appointment_buttom"></div>
+        </div>
+    {% endfor %}
+    <div class="paging">
+        <span class="paging_count">
+            << 总记录数=[{{params.count}}]-总页数=[{{params.pages}}] >>            
+        </span>
+        <span class="paging_page">
+            <a href="/details?id={{params.department.id}}&page=1">首页</a> 
+            {% for page in range(1,params.pages + 1) %}    
+                <a id="page_{{page}}" href="/details?id={{params.department.id}}&page={{page}}">[{{page}}]</a>
+            {% endfor %}
+            <a href="/details?id={{params.department.id}}&page={{params.page +1}}">下一页</a>
+        </span>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,85 @@
+{% extends 'Home.html' %}
+
+{% block link %}
+<link rel="stylesheet" type="text/css" href="/static/css/Public.css">
+<link rel="stylesheet" href="/static/css/OrderSuccess.css">
+<script src="/static/js/jquery-1.11.3.js"></script>
+<script src="/static/js/OrderSuccess.js"></script>
+<script>
+    $(function(){
+        get_weekday('{{ params.order.ordertime }}');
+    })
+</script>
+{% endblock %}
+
+{% block inherit %}
+<!-- 设置右侧 位置信息 -->
+<div>
+<div id="localtion">
+    导航：
+    <a href="/">首页</a>&nbsp;>>
+    预约信息
+</div>
+
+<!-- 设置提示信息 -->
+<div class="tips">
+    {{ params.orderMessage }}
+</div>
+<div class="message">
+    以下是您预约的信息：
+</div>
+
+<!-- 预约信息 -->
+<div class="doctor_information">
+    <div class="add_time">预约单：&nbsp; {{params.order.addtime}}</div>
+    <div class="doctor_info">
+        <div class="div_info">
+            <div class="div_left">
+                预约医生：
+                <a href="#">{{ params.order.doctor.name }}</a>
+            </div>
+            <span>
+                医生职称：{{ params.order.doctor.title }}
+            </span>
+        </div>
+        <div class="div_info">
+            医院科室：
+            <a href="/">广东省口腔医院</a>
+            <a href="/details?id={{ params.order.doctor.department.id}}">{{ params.order.doctor.department.department }}</a>
+        </div>
+        <div class="div_info">
+            患者姓名：
+            <span>{{ params.order.painter_name }}</span>
+        </div>
+        <div class="div_info">
+            预约时间：
+            <div id="div_time" style="color: red;display: inline-block;">
+                {% if params.order.status == 'am' %}
+                    &nbsp;上午
+                {% else %}
+                    &nbsp;下午
+                {% endif %}
+                &nbsp;[{{ params.order.ordertime }}]
+            </div>
+
+        </div>
+        <div class="div_info">
+            所患病症：
+            <span>{{ params.order.disease}}</span>
+        </div>
+        <div class="div_info">
+            <div class="div_left">
+                身份证号：
+                {{ params.order.id_card}}
+            </div>
+            <span>
+                手机号码：
+                {{ params.order.phone}}
+            </span>
+        </div>
+    </div>
+    <div id="information_bottom"></div>
+</div>
+</div>
+{% endblock %}
+
