@@ -1,0 +1,113 @@
+#right_main .deptlist,.deptdoctor{
+	margin: 0;
+	padding: 0;
+}
+
+#right_main #right_head{
+	width: 960px;
+	height: 25px;
+	background-color: #fff;
+	margin-top:10px;
+	border-bottom: 1px solid #ccc;
+}
+#right_main #right_head a{
+	font-size: 14px;
+	margin-right: 20px;
+}
+/* 右边主体背景颜色设置 */
+#right_main .deptlist>ul{
+	margin-top:20px;
+	background-color: #fff;
+}
+/* 设置每个科室的基本样式 */
+#right_main .deptlist>ul>li{
+	list-style: none;
+	display: block;
+	width: 300px;
+	height: 220px;
+	border: 3px solid #fff;
+	margin: 0px 10px 10px 0px;
+	float: left;
+}
+/* 手表放置各科室上时，显示边框 */
+#right_main .deptlist>ul>li:hover{
+	border: 3px solid #56975F;
+}
+
+/* 各科室简介 背景样式设置 */
+#right_main .deptlist ul li .deptinfor{
+	background: #f2f2f2;
+	display: block;
+	width: 300px;
+	height: 145px;
+	float: left;
+}
+/* 右上角 HOT 框样式 */
+#right_main .deptlist ul li .deptinfor .iconhot{
+	width: 40px;
+	height: 18px;
+	background-color: #56975F;
+	font-weight: normal;
+	text-align: center;
+	color: #fff;
+	float:right;
+}
+/* 各科室简介 文字样式基本设置 */
+#right_main .deptlist ul li .deptinfor p{
+	margin: 24px 15px;
+	color: #999;
+	text-indent: 28px;
+	line-height: 24px;
+}
+
+#right_main .deptlist ul li .deptinfor p a{
+	color: #007d67;
+	text-decoration: none;
+	/* margin-left: 5px; */
+}
+/* 鼠标放置在 “更多” 上时的颜色变换 */
+#right_main .deptlist ul li .deptinfor p a:hover{
+	color: #f60;
+}
+
+/* 左下方科室名字 样式设置 */
+#right_main .deptlist ul li .deptdoctor h2 a{
+	color: #333;
+	text-decoration: none;
+	font-size: 12px;
+	font-weight: bold;
+	margin-left: 10px;
+}
+/* 左下方 医生名字 外边距 行高设置 */
+#right_main .deptlist ul li .deptdoctor p{
+	margin:10px 0 0 0;
+	line-height: 16px; 
+}
+/* 医生名字 样式设置 */
+#right_main .deptlist ul li .deptdoctor .left{
+	width: 188px;
+	display: block;
+	margin-left: 10px; 
+}
+
+#right_main .deptlist ul li .deptdoctor p a{
+	color: #999;
+	text-decoration: none;
+	font: 14px "宋体";
+}
+
+/* 右下方 小图标设置 */
+#right_main .deptlist ul li .deptdoctor .right{
+	background: url("../static/image/dept_icon_doctor.png") no-repeat 0px 0px;
+	padding: 0 0 0 16px;
+	color: #999;
+	margin-right: 10px;
+}
+
+#right_main .left{
+	float: left;
+}
+
+#right_main .right{
+	float: right;
+}

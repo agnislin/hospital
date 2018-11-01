@@ -1,0 +1,219 @@
+body, h1,h2,ul,li{
+	margin: 0;
+	padding: 0;
+}
+img{
+	vertical-align: middle;	
+}
+ul{
+	list-style: none;
+}
+/*****************************/
+#container{
+	margin: 0 auto;
+	width: 960px;
+	border: 3px solid #1D9659;
+}
+#head{
+	height: 100px;
+	background-image: url(/static/image/doctor_login/top.jpg);
+}
+
+#head a,h1{
+	float: left;
+	line-height: 100px;
+}
+
+#head img{
+	height: 80px;
+	width: 80px;
+	margin-left: 30px;
+}
+
+#head h1{
+	margin-left: 50px;
+	color: #01A897;
+	font-family: "宋体";
+}
+
+#navigation{
+	height: 30px;
+	background-color: #F8F8F8;
+	line-height: 30px;
+}
+#navigation span{
+	display: block;
+	margin-left: 20px;
+	color: #666666;
+}
+
+#main{
+	width: 860px;
+	margin-left: 40px;
+}
+
+#main li{
+	float: left;
+	border: 2px solid #DCDCDC;
+	margin-left: 20px;
+	margin-top: 10px;
+}
+
+#main li:hover{
+	border: 2px solid #1D9659;
+}
+
+#main img{
+	height: 120px;
+	height: 100px;
+}
+
+.bottom{
+	clear: both;
+	margin-top: 30px;
+}
+/*****弹框登录******/
+.mypop *{
+    margin: 0;
+    padding: 0;
+    font-family: "Glyphicons Halflings", "Microsoft YaHei";
+    font-size: 14px;
+    box-sizing: border-box;
+}
+.mypop a{
+    text-decoration: none;
+}
+.mypop button{
+    width: 180px;
+    height: 36px;
+    line-height: 36px;
+    text-align: center;
+    border-radius:6px;
+    border: none;
+    background:linear-gradient(#749dcf,#1c7ecf);
+    color: #FFFFff;
+    cursor: pointer;
+    outline: none;
+}
+.mypop button:hover{
+    background: #1c7ecf;
+    cursor: pointer;
+}
+.mypop .graybox{
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,.6);
+    position: fixed;
+    top:0;
+    left: 0;
+    z-index: 9;
+}
+.mypop .popbox{
+    width: 600px;
+    padding-bottom: 30px;
+    border-radius: 6px;
+    background: #FFFFff;
+    position: absolute;
+    left: 50%;
+    margin-left: -250px;
+    top:26%;
+    z-index: 19;
+}
+.mypop .poptop{
+    width: 100%;
+    height: 120px;
+    line-height: 120px;
+    text-align: center;
+    border-bottom: 1px solid #F2F2F2;
+    position: relative;
+}
+.mypop .poptop h3{
+    font-size:32px;
+    font-weight: 600;
+    color:#749dcf;
+}
+.mypop .popcon{
+    padding: 20px 50px;
+}
+.mypop .popcon .group{
+    position: relative;
+}
+.mypop .popcon .group  input{
+    color: #999999;
+    width:60%;
+    height: 36px;
+    line-height: 36px;
+    border-radius:10px;
+    margin-left: 100px;
+    margin-top:20px;
+    padding:0 10px 0 40px;
+    border:none;
+    background: #f0f0f0;
+}
+
+.mypop .popcon input:focus{
+    outline: none;
+    background: #DDDDDD;
+}
+
+.mypop .popcon .error{
+    padding-left:120px; 
+    font-size: 12px;
+    color: red;
+}
+
+.mypop .popcon .remember{
+    font-size: 12px;
+    margin-top: 15px;
+    color: #749dcf;
+}
+
+.mypop .popcon .remember .inputbox,label{
+    display: inline-block;
+}
+.mypop .popcon .remember .inputbox{
+    vertical-align: -2px;
+    width: 14px;
+    height: 14px;
+    border-radius: 2px;
+    margin-left: 120px;
+    /*border: 1px solid red;*/
+}
+
+.mypop .popcon .remember .code{
+    float: right;
+    margin-right: 120px;
+    font-size: 14px;
+    color: #749dcf;
+}
+.mypop .popcon .remember .code:hover{
+    text-decoration: underline;
+    color: #749dcf;
+}
+/************/
+.mypop .divbtn{
+    width: 260px;
+    margin:20px auto 0;
+ }
+.mypop .divbtn .btn{
+    display: block;
+    float: left;
+    width:120px;
+    height: 36px;
+    line-height: 36px;
+    text-align: center;
+    border-radius:6px;
+    background: #eeeeee;
+    color: #464646;
+}
+.mypop .divbtn .btn:hover{
+    background: #DDDDDD;
+}
+.mypop .divbtn .ok{
+    background: #749dcf;
+    margin-left: 20px;
+    color: #FFFFff;
+}
+.mypop .divbtn .ok:hover{
+    background: #5e8ecf;
+}

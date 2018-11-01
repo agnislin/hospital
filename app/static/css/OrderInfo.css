@@ -1,0 +1,100 @@
+
+/****主体右部信息*****/
+#right_main{
+	width: 960px;
+    float: right;
+    border: 0.1px solid #ccc;
+}
+
+/* 设置右侧位置信息 */
+#localtion{
+    font-size: 12px;
+    height: 40px;
+    line-height: 40px;
+}
+#localtion>a{
+    font-size: 12px;
+    color: black;
+}
+/* 位置信息中a的伪类选择器 */
+#localtion>a:hover{
+    color: #666;
+    text-decoration: underline;
+}
+
+/* 设置提示信息样式 */
+.tips{
+    box-sizing: border-box;
+    padding-left: 10px;
+    width: 98%;
+    border: 0.1px solid #ccc;
+    height: 32px;
+    line-height: 32px;
+    font-weight: bold;
+    color: #4b8400;
+    font-size: 14px;
+}
+.message{
+    font-size: 14px;
+    color:#4B8400;
+    font-weight: bold;
+    height: 30px;
+    line-height: 30px;
+    padding-left: 10px;
+/*    border-top: 1px solid #ccc;*/
+}
+.msg_next{
+    margin-top: 10px;
+}
+/* 预约信息 */
+.doctor_information{
+    background: #F7F7F7;
+    border: 0.1px solid #ccc;
+    font-size: 12px;
+    color: #666;
+    width: 98%;
+}
+.add_time{
+    padding-left: 10px; 
+    margin: 10px;
+}
+
+.doctor_info{
+    float: left;
+    height: 140px;
+    width: 800px;
+    margin-left: 20px;
+}
+.div_info{
+    height: 23px;
+    line-height: 23px;
+}
+.div_info a{
+    font-size: 12px;
+    color: #4b8400;
+}
+.div_left{
+    display: inline-block;
+    width: 53%;
+}
+.cur_order{
+    color: red;
+}
+
+/*主体内容高度支撑*/
+#information_bottom{
+	clear: both;
+}
+
+/*查看预约信息*/
+.old_order .div_info a{
+    color: #666666;
+}
+
+.NoInfo{
+    font-size: 20px;
+    color: #666;
+    font-weight: bold;
+    padding-left: 50px;
+    margin: 15px 0;
+}

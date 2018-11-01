@@ -1,0 +1,210 @@
+body, h1,h2,h3,h4,p,ul,li, table, td{
+	margin: 0;
+	padding: 0;
+}
+img{
+	vertical-align: middle;	
+}
+ul{
+	list-style: none;
+}
+.buttom{
+	clear: both;
+	margin-top: 30px;
+}
+a{
+	text-decoration: none;
+	color: #666; 
+}
+a:hover{
+	color: #1D9659;
+}
+
+.font_14{
+	font-size: 14px;
+}
+.pad_10 p{
+	padding-top: 2px;
+	padding-bottom: 2px;
+}
+.width_80{
+	width: 80px;
+}
+
+/*****************************/
+#container{
+	margin: 0 auto;
+	width: 1000px;
+	border: 3px solid #1D9659;
+}
+#head{
+	height: 100px;
+	background-image: url(/static/image/doctor_login/top.jpg);
+	background-size: 100% 100%;
+}
+
+#head a,h1{
+	float: left;
+	line-height: 100px;
+}
+
+#head img{
+	height: 80px;
+	width: 80px;
+	margin-left: 30px;
+}
+
+#head h1{
+	margin-left: 50px;
+	color: #01A897;
+	 font-family: "宋体";
+}
+/*导航*/
+#Navigation{
+	height: 35px;
+	background-color: #F8F8F8;
+	line-height: 35px;
+}
+
+#Navigation .Nav_left{
+	float: left;
+	margin-left: 100px;
+}
+#Navigation .Nav_left li{
+	float: left;
+	margin-right: 25px;
+}
+
+#Navigation .Nav_right{
+	float: right;
+	margin-right: 10px;
+}
+
+#Navigation .Nav_right li{
+	float: left;
+	margin-right: 20px;
+	color: #666;
+}
+/*科室列表*/
+#depart_list{
+	width: 12%;
+	background-color: #E9F9EB;
+	margin-left: 5px;
+	margin-top: 5px;
+	float: left;
+}
+#depart_list h4{
+	border-bottom: 1px solid #CCCCCC;
+	border-top: 1px solid #CCCCCC;
+	height: 30px;
+	line-height: 30px;
+	padding-left: 5px;
+}
+#depart_list li{
+	text-align: center;
+	border-bottom: 1px solid #CCCCCC;
+	padding: 5px 0;
+	font-size: 15px;
+}
+
+/*排班*/
+#main_right{
+	width: 86%;
+	margin-top: 5px;
+	margin-left: 10px;
+	border-left: 1px dotted #9CC889;
+	float: left;
+
+}
+#main_right .dept_name{
+	height: 30px;
+	line-height: 30px;
+	margin-left: 10px;
+	border-bottom: 1px solid #CCCCCC;
+}
+#main_right .dept_name .dept{
+	color: blue;
+}
+
+/*排班表*/
+#main_right table{
+	border-collapse: collapse;
+	font-size: 15px;
+	text-align: center;
+	margin: 10px 0 0px 10px;
+
+}
+#main_right .sort td{
+	border: 1px solid #A1A2A5;
+	padding: 7px 6px;
+}
+#main_right .sort .sort_set{
+	color: blue;
+}
+#main_right .sort .rest{
+	color: red;
+}
+
+
+#main_right .sort .number{
+	width: 30px;
+	color: #666;
+	padding: 3px 0 3px 5px;  
+}
+
+#main_right .sort .date{
+	color: red;
+}
+#main_right .sort .doctor{
+	color: #0065A7;
+}
+#main_right .sort .width_95{
+	width: 85px;
+	text-align: left;
+}
+
+#main_right .sort .btn{
+	display: inline-block;
+	background-color: #F2F1F0;
+	width: 50px;
+	height: 25px;
+	border-radius: 2px;
+	margin-left: 5px;
+	color: #4C4C4C;
+	text-align: center;
+	box-shadow: 1px 1px 1px 0 #868584;
+}
+#main_right .sort .btn:hover{
+	background-color: #FCFCFC;
+}
+
+#main_right .sort .ok{
+	/*display: none;*/
+	display: inline-block;
+	margin-left: 10px;
+	font-size: 20px;
+	color: #1D9659;
+	font-weight: bold;
+}
+
+#main_right .submit{	
+	margin-top: 20px;
+}
+#main_right .submit *{
+	display: inline-block;
+	margin-right: 30px;
+	vertical-align: middle;
+}
+#main_right .submit span{
+	margin-left: 250px;
+}
+#main_right .submit input{
+	width: 80px;
+	height: 30px;
+	border-radius: 5px;
+}
+
+#main_right .submit input:hover{
+	background-color: #4D865F;
+	color: white;
+}

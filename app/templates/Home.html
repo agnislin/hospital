@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>海珠口腔医院预约挂号</title>
+	<link rel="shortcut icon" href="/static/image/icon/hospital.ico" type="image/x-icon">
+<!-- ************请依据此模板来进行页面开发************* -->	
+	{% block link %}	
+	    <link rel="stylesheet" type="text/css" href="/static/css/Public.css">
+		<link rel="stylesheet" type="text/css" href="/static/css/Home.css">
+	{% endblock %}	
+</head>
+<body>
+	<!-- 导航栏 -->
+	<div id="Navigation"></div>
+	<!-- 首部 -->
+	<div id="head">
+		<ul>
+			<li>
+				<a href="/">
+					<img src="/static/image/logo.png">
+				</a>
+			</li>
+			<li class="l_Head">
+				<a href="/">首页</a>
+			</li>
+			<li class="l_Head">
+				<a href="#">医院简介</a>		
+			</li>	
+			<li class="l_Head">
+				<a href="/Section">科室介绍</a>
+			</li>
+			<li class="l_Head">
+				<a href="#">专家介绍</a>
+			</li>
+			<li class="l_Head">
+				<a href="#">预约挂号</a>
+			</li>
+			<li class="l_Head">
+				<a href="#">在线咨询</a>
+			</li>
+			<li class="l_Head">
+				<a href="#">地理位置</a>
+			</li>
+			<li class="l_Head">
+				<a href="#">最新消息</a>
+			</li>
+			<li class="r_Head">
+                {% if params.userName %}
+                    <img src="/static/image/Login.jpg">
+                    <ul>
+                        <span>{{params.userName}}</span>
+						<li>
+                            <a href="/OrderInfo">预约信息</a>
+                        </li>
+                        <li>
+                            <a href="/Sign_out">退出</a>
+                        </li>
+                    </ul>
+                {% else %}
+                    <a href="/Login">[ 登录 ]</a>
+                    <span> | </span>
+                    <a href="/Register">[ 注册 ]</a>
+                {% endif %}
+			</li>
+		</ul>		
+	</div>
+	<!-- 主体 -->
+	<div id="main">
+		<!-- 顶部框 -->
+		<div id="top"></div>
+		<!-- 主体左部 -->
+		<div id='left_main'>
+			<!-- 最新公告 -->
+			<div id="Notice">
+				<h2>医院最新公告</h2>
+				<marquee direction=up height="40" scrollamount="1" onmouseover=info1.stop() onmouseout=info1.start()>
+                                    1、为不影响您的就医，请于就诊前1-14个工作日提交预约需求；
+                                    2、网站信息仅供参考，具体出诊和收费情况以医院为准
+                </marquee>
+			</div>
+			<!-- 随便添加一点图片 -->
+			<div id="icon">
+				<img src="/static/image/icon/icon_yuyuezhuyuan_grey.png">
+				<img src="/static/image/icon/icon_daoyipeizhen_grey.png">
+				<img src="/static/image/icon/icon_yuyuetijian_grey.png">
+				<img src="/static/image/icon/icon_dingdianyiyuan_grey.png">
+				<img src="/static/image/icon/icon_yuanchengxindian_grey.png">
+			</div>
+			<!-- 特色科室 -->
+			<div id="characteristic">
+				<h2>医院特色科室</h2>
+				<div>					
+					<a href="#">牙体牙髓科</a>
+					<a href="#">牙周病科</a>
+					<a href="#">洁牙中心</a>
+					<a href="#">正畸科</a>
+					<a href="#">儿童牙科门诊</a>
+					<a href="#">额面外科</a>
+					<a href="#">口腔种植中心</a>					
+				</div>
+			</div>
+		</div>
+		<!-- 主体右部 -->
+		<div id='right_main'>
+
+	<!-- ************请依据此模板来进行页面开发************* -->	
+		{% block inherit %}	
+			<!-- 图片展示 -->
+			<div id="dis_picture">
+				<img src="/static/image/hos/gdskq_1.jpg">
+				<img src="/static/image/hos/gdskq_2.jpg">
+				<img src="/static/image/hos/gdskq_3.jpg">
+				<img src="/static/image/hos/gdskq_4.jpg">
+			</div>
+			<!-- 医院概况 -->
+			<div id="survey">
+				<p class="top_sur">
+					<img src="/static/image/list_1.PNG">
+					<a href="#">更多>></a>
+				</p>
+				<p class="bot_sur">
+					<a href="#">
+						海珠口腔医院座落在广州市江南大道南366号，是华南地区最有规模的临床口腔医院，亦是我国最早建立的五大口腔医院之一，至今已有40年的历史。医院就诊环境，拥有现代化的诊室和病房，国际先进的医疗设备，加以严谨科学的管理，雄厚的技术力量，为四面八方的口腔患者提供优质的专科服务。<br><br>　　本院按照国际口腔医院医学专科分类，设立17个专业科室，半数以上医生获高级职称，并有一大批博士、硕士毕业生以及...... ......	
+					</a>
+				</p>
+			</div>
+			<!-- 科室列表 -->
+			<div id="department">
+				<p class="top_dep">
+					<img src="/static/image/list_2.PNG">
+				</p>
+				<p class="bot_dep">
+					{% for d in params.departments  %}
+                    	<a href="/details?id={{ d.id }}" >{{d.department}}</a>
+					{% endfor %}
+				</p>				
+			</div>
+			<!-- 专家推荐 -->
+			<div id="expert">
+				<p class="top_expert">
+					<img src="/static/image/list_3.PNG">
+					<a href="#">更多>></a>
+				</p>
+				<table class="bot_expert">
+					<thead>
+						<tr>
+							<th>专家姓名</th>
+							<th>所属科室</th>
+							<th>临床职称</th>
+							<th>擅长治疗</th>
+						</tr>
+
+					</thead>
+					<tbody>	
+					<!--  根据科室id查找每个科室前三个医生并推荐到首页  					 -->
+						{% for d in params.departments %}
+							<tr>
+								<td>
+									<a href="#">{{d.doctors.first().name}}</a>
+								</td>
+								<td>
+									<a href="">{{d.department}}</a>
+								</td>
+								<td>{{d.doctors.first().title}}</td>
+								<td class="table_last">{{d.doctors.first().skill}}</td>	
+							</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+			</div>
+		{% endblock %}
+	<!-- *************请依据以上模板进行开发********************* -->
+		</div>
+		<div id="bottom"></div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,175 @@
+{% extends 'Home.html' %}
+
+{% block link %}
+<link rel="stylesheet" type="text/css" href="/static/css/Public.css">
+<link rel="stylesheet" href="/static/css/Order.css">
+<script src="/static/js/jquery-1.11.3.js"></script>
+<script src="/static/js/Order.js"></script>
+<script>
+    $(function(){
+        // 构建星期
+        get_weekday('{{ params.date }}');
+        // 预约提交前先登录
+        $('form').submit(function(){
+            if ('{{params.userName}}'){
+                return true;
+            }
+            else{
+                alert('请先登录');
+                return false;
+            }
+        })
+        // 当预约提交不成功时，显示返回信息
+        if ("{{params.orderMessage}}"){
+            alert('{{params.orderMessage}}');
+        }
+    })
+</script>
+{% endblock %}
+
+{% block inherit %}
+<!-- 设置右侧 位置信息 -->
+<div id="localtion">
+    导航：
+    <a href="/">首页</a>
+    &nbsp;>>
+    <a href="/details?id={{ params.doctor.department.id}}">{{ params.doctor.department.department }}</a>
+    &nbsp;>>
+    <a href="#">{{ params.doctor.name }}</a>
+</div>
+
+<!-- 设置提示信息 -->
+<div class="tips">
+    请详细填写您的个人信息，以便我们能及时与您联系!
+</div>
+
+<div class="message">
+    以下是您所预约专家的基本资料：
+</div>
+
+<!-- 医生信息 -->
+<div class="doctor_information">
+    <div class="doctor_img">
+        <img src="/static/image/docpicnull.gif" width="80" height="100">
+    </div>
+    <div class="doctor_info">
+        <div class="div_info">
+            <div class="div_left">
+                专家名称：
+                <a href="#">{{ params.doctor.name }}</a>
+            </div>
+            <span>
+                临床职称：{{ params.doctor.title }}
+            </span>
+        </div>
+        <div class="div_info">
+            所属医院：
+            <a href="/">海珠口腔医院</a>
+            <a href="/details?id={{ params.doctor.department.id}}">{{ params.doctor.department.department }}</a>
+        </div>
+        <div class="div_info">
+            擅长治疗：
+            {{ params.doctor.skill }}
+        </div>
+        <div class="div_info">
+            预约时间：
+            <div id="div_time" style="color: red;display: inline-block;">
+                {% if params.status == 'am' %}
+                &nbsp;上午 &nbsp;[{{ params.date }}]
+                {% else %}
+                &nbsp;下午 &nbsp;[{{ params.date }}]
+                {% endif %}
+            </div>
+
+        </div>
+        <div class="div_info">
+            出诊地点：
+            海珠口腔医院
+        </div>
+        <div class="div_info">
+            <div class="div_left">
+                挂号费用：
+                {{ params.doctor.price}}
+            </div>
+            <span style="color: #1C8B5F;">剩余号源: {{ params.curcount }}</span>
+        </div>
+    </div>
+</div>
+
+<!-- 预约信息填写 -->
+<div class="order_information">
+    <form action="/Order" method="post">
+        <table>
+            <tr>
+                <td class="td_left">就诊人姓名：</td>
+                <td class="td_right">
+                    <input type="text" name="painter_name" id="painter_name" required>
+                    <input type="hidden" name="doctor_id" value="{{ params.doctor_id }}">
+                    <input type="hidden" name="date" value="{{ params.date }}">
+                    <input type="hidden" name="status" value="{{ params.status }}">
+                    <font color="red">*</font>
+                    <span>中文（小于12字符）</span>
+                </td>
+            </tr>
+            <tr>
+                <td class="td_left">
+                    请输入所患疾病：
+                </td>
+                <td class="td_right">
+                    <input type="text" name="disease" id="disease" required>
+                    <font color="red">*</font>
+                    <span>
+                        请填写有效疾病（小于12个字符）
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="td_left">
+                    就诊人身份证：
+                </td>
+                <td class="td_right">
+                    <input type="text" name="id_card" id="id_card" required>
+                    <font color="red">*</font>
+                    <span>
+                        请填写有效身份证
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="td_left">
+                    性别：
+                </td>
+                <td class="td_right">
+                    <input type="radio" name="sex" id="male" value="male" checked>
+                    <label for="male">男</label>
+                    <input type="radio" name="sex" id="famale" value="famale">
+                    <label for="famale">女</label>
+                </td>
+            </tr>
+            <tr>
+                <td class="td_left">
+                    手机号码：
+                </td>
+                <td class="td_right">
+                    <input type="text" name="phone" id="phone" required>
+                    <font color="red">*</font>
+                    <span>
+                        请填写有效手机号
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="td_left">
+
+                </td>
+                <td class="td_right">
+                    <input type="submit" value="预约">
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+</div>
+
+{% endblock %}
+
