@@ -22,14 +22,13 @@ $(function(){
 
 
     //验证验证码信息
-    $('.yzm').blur(function () {
+    $('.yzm').change(function () {
         $.post('/Code',{"code":$('.yzm').val()},function (res) {
             if (res == 'err'){
                 alert('验证码错误,请重新填写!');
                 $('.yzm').val('');
             }
         },'text');
-
     });
 
     // 表单提交验证
